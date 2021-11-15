@@ -1,0 +1,15 @@
+
+
+.card{
+    margin-top: 15vh;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.card-body{
+    height: 15vh;
+}
+
+.card:hover{
+    transform: translate(-5px, -5px);
+}
