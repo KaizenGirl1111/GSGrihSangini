@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantarell&display=swap');
+
+
+.navbar{
+    background-color: #5254D8;
+  }
+  
+  .navbar-collapse{
+    flex-grow: 0 !important;
+  }
+  .nav-brand{
+    width:105%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav-brand-logo{
+    height: 65px;
+  }
+  
+  .nav-brand-heading{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cantarell', sans-serif;
+  }
+  

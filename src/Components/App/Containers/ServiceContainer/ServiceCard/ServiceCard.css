@@ -1,0 +1,23 @@
+
+.service-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:250px;
+    height:250px;
+    border-radius: 50px;
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+    margin:2%;
+}
+
+.service-img{
+    width:180px;
+    height:180px;
+}
+
+.service-text{
+    font-weight: 600;
+    color:#a89f9f;
+}

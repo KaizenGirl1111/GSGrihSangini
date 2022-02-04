@@ -1,0 +1,9 @@
+.video-container-container{
+    text-align: center;
+    padding:5%;
+}
+
+video{
+    width:60%;
+    height:40%;
+}

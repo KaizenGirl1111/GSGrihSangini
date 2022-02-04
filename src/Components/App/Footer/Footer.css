@@ -1,0 +1,22 @@
+
+.footer-container{
+    color:rgb(240, 230, 230);
+}
+
+.footer{
+    background-color: #192294;
+    padding:2% 10%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icon{
+    margin:5px;
+}
+
+.copyright{
+    text-align: center;
+    background-color: #000278;
+    padding: 1%;
+}

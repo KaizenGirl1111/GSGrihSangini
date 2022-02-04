@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Card, Button, CardGroup } from 'react-bootstrap';
+import { Card, CardGroup } from 'react-bootstrap';
 import './Cards.css';
 import demo from './demo.jpg';
 

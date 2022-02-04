@@ -1,0 +1,13 @@
+
+.header-container{
+    background-color: #5254D8;
+    height:80vh;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+}
+
+.banner{
+    width:60%;
+    height:90%;
+}
