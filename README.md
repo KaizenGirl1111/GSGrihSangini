@@ -1,3 +1,66 @@
+# _THIS SUMMER,CELEBRATE THE SPIRIT OF OPEN SOURCE!_ 
+
+<img width="553" alt="image" src="https://user-images.githubusercontent.com/73153808/156029225-91362c76-b04e-4af9-84fa-3d61b7ed52b1.png">
+
+
+# About GrihSangini
+
+   ![GS new logo](https://user-images.githubusercontent.com/73153808/156029947-8d35ba63-c986-4b51-bf36-2673a47724e1.jpg)
+
+
+GrihSangini is a project working towards creating a brand new LinkedIn but for blue-collar workers. A place where blue-collar workers can mingle, upskill themselves, learn financial literacy and most importantly-find jobs for themselves. 
+
+### Do check the pitch for more information-
+
+[Pitch link](https://www.canva.com/design/DAEv9QVgbcI/bVCXGhZ1ZPW26kT4xycqwQ/view?utm_content=DAEv9QVgbcI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+### Or else, you can check this video-
+_Click on the gif-_
+
+[![Watch the video](https://mir-s3-cdn-cf.behance.net/project_modules/disp/31a97258737059.5a07705b4b565.gif)](https://www.youtube.com/watch?v=d5_xVjnT0Cc&t=9s)
+
+# Tech Stack
+
+Currently, we are building this platform on **MERN stack. We are open to new innovations, technologies and tech stacks though!**
+
+# Design of the website 
+
+You're **FREE** to design the way to want to. Just stick to the principles-
+1. Use GrihSangini's logo in header, footer/ any other place if needed. _(In the About GrihSangini section)_
+2. Maintain the colour scheme- 
+#000278 
+#192294
+#5254D8
+#B7B9F4
+
+Refer to this mobile view design as the wireframe for the website- 
+<img width="554" alt="image" src="https://user-images.githubusercontent.com/73153808/156035021-e88b459a-5c13-4103-a1a0-9c491f43e922.png">
+
+
+
+# Understanding issues in this repo
+|**Label**|               | **description**|
+|----------|:-------------:|------:|
+|easy     |               |easy peasy lemon squeezy issues :P|
+|advanced|                |Advanced issues requiring good development skills|
+|bug|                     |Something isn't working|
+|documentation|           |Improvements or additions to documentation|
+|good first issue|        |Good for newcomers|
+|help wanted|             |Extra attention is needed|
+|intermediate|            |This issue or pull request already exist|
+|invalid|                 |This doesn't seem right|
+|new feature|             |New feature or request|
+|question|                |Further information is requested|
+|wontfix|                 |This will not be worked on|
+
+# Resources for developers
+
+### MongoDB
+https://www.mongodb.com/basics
+
+### React 
+https://reactjs.org/docs/getting-started.html
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
