@@ -70,7 +70,7 @@ Refer to this mobile view design as the wireframe for the website-
 - [Video-Tutorial-1](https://www.youtube.com/watch?v=4UZrsTqkcW4)
 - [Video-Tutorial-2](https://www.youtube.com/watch?v=bMknfKXIFA8)
 
-### Integrated resource for MERN
+### A Integrated resource for MERN
 - [MERN](https://www.youtube.com/watch?v=ngc9gnGgUdA&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu)
 
 
