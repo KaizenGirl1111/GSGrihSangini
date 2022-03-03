@@ -54,11 +54,24 @@ Refer to this mobile view design as the wireframe for the website-
 
 # Resources for developers
 
+## MERN
 ### MongoDB
-https://www.mongodb.com/basics
+- [Documentation](https://docs.mongodb.com/)
+- [Video-Tutorial-1](https://www.youtube.com/watch?v=ofme2o29ngU)
+- [Video-Tutorial-2](https://www.youtube.com/watch?v=9OPP_1eAENg&list=PL4cUxeGkcC9jpvoYriLI0bY8DOgWZfi6u)
 
-### React 
-https://reactjs.org/docs/getting-started.html
+### Node and Express
+- [Node Documentation](https://nodejs.org/en/docs/)
+- [Express Documentation](https://expressjs.com/)
+- [Video-Tutorial-1](https://www.youtube.com/watch?v=Oe421EPjeBE)
+
+### React.js
+- [Documentation](https://reactjs.org/docs/getting-started.html)
+- [Video-Tutorial-1](https://www.youtube.com/watch?v=4UZrsTqkcW4)
+- [Video-Tutorial-2](https://www.youtube.com/watch?v=bMknfKXIFA8)
+
+### Integrated resource for MERN
+- [MERN](https://www.youtube.com/watch?v=ngc9gnGgUdA&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu)
 
 
 # Getting Started with Create React App
