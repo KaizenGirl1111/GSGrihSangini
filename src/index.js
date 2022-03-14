@@ -1,11 +1,19 @@
 import React from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
+
+
 import ReactDOM from 'react-dom';
 import App from './Components/App/App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
+
     <App />
+
   </React.StrictMode>,
   document.getElementById('root')
 );

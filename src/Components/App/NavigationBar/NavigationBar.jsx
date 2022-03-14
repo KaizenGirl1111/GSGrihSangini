@@ -1,5 +1,6 @@
 import React from "react";
 import {Navbar,Container,Nav} from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import './NavigationBar.css';
 import logo from './brand_logo.png';
 
@@ -32,6 +33,7 @@ function NavigationBar(){
              <Nav.Link href="#services">Services</Nav.Link>
              <Nav.Link href="#reviews">Reviews</Nav.Link>
              <Nav.Link href="#contactus">Contact Us</Nav.Link>
+             <Nav.Link href="/Signup">Sign Up</Nav.Link>
            </Nav>
          </Navbar.Collapse>
        </Container>

@@ -1,22 +1,37 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavigationBar from './NavigationBar/NavigationBar';
-import Header from './Header/Header';
-import ServiceContainer from './Containers/ServiceContainer/ServiceContainer';
-import TestimonialsContainer from './Containers/TestimonialsContainer/TestimonialsContainer';
-import Footer from './Footer/Footer';
-import VideoContainer from './Containers/VideoContainer/VideoContainer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
+
+import Signup from "./Signup";
+import Home from "./Home";
+
+
 
 function App() {
-  
+
   return (
     <div class="app">
-      <NavigationBar />
-      <Header/>
-      <ServiceContainer/>
-      <TestimonialsContainer/>
-      <VideoContainer/>
-      <Footer />
+
+<Router>
+
+      <Routes>
+
+      <Route exact path="/" element={<Home />} />
+      <Route path="/Signup" element={<Signup />} />
+      </Routes>
+
+
+
+
+        </Router>
+
+
+
+
+
+
     </div>
   );
 }
