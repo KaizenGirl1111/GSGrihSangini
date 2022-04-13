@@ -32,7 +32,7 @@ function NavigationBar(){
              <Nav.Link href="#aboutus">About Us</Nav.Link>
              <Nav.Link href="#services">Services</Nav.Link>
              <Nav.Link href="#reviews">Reviews</Nav.Link>
-             <Nav.Link href="#contactus">Contact Us</Nav.Link>
+             <Nav.Link href="mailto:gsgrihsangini@gmail.com">Contact Us</Nav.Link>
              <Nav.Link href="/Signup">Sign Up</Nav.Link>
            </Nav>
          </Navbar.Collapse>
