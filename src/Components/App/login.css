@@ -1,0 +1,19 @@
+.block {
+    padding-top: 5px;
+    background-color: #5254D8;
+    font-weight: bold;
+
+}
+
+.rem {
+    margin: 10px;
+}
+
+
+.text-center {
+    padding-left: 22px;
+}
+
+.heading {
+    color: white;
+}

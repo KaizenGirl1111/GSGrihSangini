@@ -1,5 +1,5 @@
 import React from 'react';
-import "./signup.css"
+import "./login.css"
 import {
   MDBInput,
   MDBCol,
@@ -21,12 +21,10 @@ function Signup() {
 
     }}>
       <div class="card">
-        <div class="block"><h1 class="heading text-center mb-4"><b>SignUp</b></h1></div>
+        <div class="block"><h1 class="heading text-center mb-4"><b>Login</b></h1></div>
 
         <MDBInput className='mb-4' type='email' id='form2Example1' label='Email' />
         <MDBInput className='mb-4' type='password' id='form2Example2' label='Password' />
-        <MDBInput className='mb-4' type='text' id='form2Example1' label='Contact Number' />
-        <MDBInput className='mb-4' type='text' id='form2Example1' label='Address' />
         <div class="rem">
           <MDBRow className='mb-4'>
             <MDBCol className='d-flex justify-content-center'>
@@ -36,7 +34,7 @@ function Signup() {
           </MDBRow>
         </div>
         <MDBBtn type='submit' className='mb-4' block color='white'>
-          Sign Up
+          Login
         </MDBBtn>
 
 
