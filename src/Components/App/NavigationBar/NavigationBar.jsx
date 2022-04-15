@@ -33,7 +33,8 @@ function NavigationBar(){
              <Nav.Link href="#services">Services</Nav.Link>
              <Nav.Link href="#reviews">Reviews</Nav.Link>
              <Nav.Link href="mailto:gsgrihsangini@gmail.com">Contact Us</Nav.Link>
-             <Nav.Link href="/Signup">Sign Up</Nav.Link>
+             <Nav.Link href="/Signup">SignUp</Nav.Link>
+             <Nav.Link href="/Login">Login</Nav.Link>
            </Nav>
          </Navbar.Collapse>
        </Container>
