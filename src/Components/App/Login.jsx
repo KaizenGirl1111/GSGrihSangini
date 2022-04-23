@@ -10,6 +10,12 @@ import {
 } from 'mdb-react-ui-kit';
 
 function Signup() {
+  const [isVisible ,setIsVisible] = React.useState(false);
+  function handleVisibility()
+  {
+    console.log("hello");
+    setIsVisible(!isVisible);
+  }
   return (
     <form style={{
       width: "22rem",
@@ -24,11 +30,12 @@ function Signup() {
         <div class="block"><h1 class="heading text-center mb-4"><b>Login</b></h1></div>
 
         <MDBInput className='mb-4' type='email' id='form2Example1' label='Email' />
-        <MDBInput className='mb-4' type='password' id='form2Example2' label='Password' />
+        <MDBInput className='mb-4' type={isVisible?'text':'password'} id='form2Example2' label='Password' />
         <div class="rem">
           <MDBRow className='mb-4'>
-            <MDBCol className='d-flex justify-content-center'>
-              <MDBCheckbox id='form2Example3' label='Remember me' defaultChecked />
+            <MDBCol className='d-flex justify-content-space-between'>
+              <MDBCheckbox id='form2Example3' label='Show Password' onChange={handleVisibility}/>
+              <MDBCheckbox id='form2Example3' label='Remember me' defaultChecked/>
             </MDBCol>
 
           </MDBRow>
