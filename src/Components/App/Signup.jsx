@@ -1,5 +1,7 @@
 import React from 'react';
 import "./signup.css"
+import NavigationBar from './NavigationBar/NavigationBar';
+import Footer from './Footer/Footer';
 import {
   MDBInput,
   MDBCol,
@@ -11,12 +13,15 @@ import {
 
 function Signup() {
   return (
+    <>
+    <NavigationBar/>
     <form style={{
       width: "22rem",
       alignItems: "center",
       justifyContent: "center",
       margin: "auto",
-      paddingTop: '100px',
+      marginBottom:"100px",
+      paddingTop: '150px',
 
 
     }}>
@@ -74,6 +79,8 @@ function Signup() {
 
       </div>
     </form>
+    <Footer/>
+    </>
   );
 }
 
