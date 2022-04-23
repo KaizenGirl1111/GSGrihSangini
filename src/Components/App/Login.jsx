@@ -39,12 +39,6 @@ function Signup() {
           id="form2Example2"
           label="Password"
         />
-        <MDBInput
-          className="mb-4"
-          type="password"
-          id="form2Example2"
-          label="Confirm Password"
-        />
         <div class="rem">
           <MDBRow className="mb-4">
             <MDBCol className="d-flex justify-content-center">
