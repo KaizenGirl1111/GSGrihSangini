@@ -35,6 +35,8 @@ function NavigationBar(){
              <Nav.Link href="mailto:gsgrihsangini@gmail.com">Contact Us</Nav.Link>
              <Nav.Link href="/Signup">SignUp</Nav.Link>
              <Nav.Link href="/Login">Login</Nav.Link>
+             <Nav.Link href="/Workersignup">WorkerSignUp</Nav.Link>
+             <Nav.Link href="/Workerlogin">WorkerLogin</Nav.Link>
            </Nav>
          </Navbar.Collapse>
        </Container>
