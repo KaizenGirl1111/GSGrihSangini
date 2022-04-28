@@ -1,5 +1,7 @@
 import React from 'react';
 import "./workersignup.css"
+import NavigationBar from './NavigationBar/NavigationBar';
+import Footer from './Footer/Footer';
 import {
     MDBInput,
     MDBCol,
@@ -10,6 +12,7 @@ import {
 
 function Workersignup() {
     return (
+        <><NavigationBar/>
         <form style={{
             width: "22rem",
             alignItems: "center",
@@ -42,6 +45,8 @@ function Workersignup() {
 
 
         </form>
+        <Footer/>
+        </>
     );
 }
 
