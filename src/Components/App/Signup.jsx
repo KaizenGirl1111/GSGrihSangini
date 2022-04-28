@@ -24,9 +24,10 @@ function Signup() {
         <div class="block"><h1 class="heading text-center mb-4"><b>SignUp</b></h1></div>
 
         <MDBInput className='mb-4' type='email' id='form2Example1' label='Email' />
-        <MDBInput className='mb-4' type='password' id='form2Example2' label='Password' />
         <MDBInput className='mb-4' type='text' id='form2Example1' label='Contact Number' />
         <MDBInput className='mb-4' type='text' id='form2Example1' label='Address' />
+        <MDBInput className='mb-4' type='password' id='form2Example2' label='Password' />
+        <MDBInput className='mb-4' type='password' id='form2Example2' label='Confirm Password' />
         <div class="rem">
           <MDBRow className='mb-4'>
             <MDBCol className='d-flex justify-content-center'>
