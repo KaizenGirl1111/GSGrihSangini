@@ -1,19 +1,16 @@
 .block {
-    padding-top: 5px;
-    background-color: #5254D8;
-    font-weight: bold;
-
+  margin-bottom: 20px;
+  padding: 5px;
+  background-color: #5254d8;
+  font-weight: bold;
 }
-
 .rem {
-    margin: 10px;
+  margin: 10px;
 }
-
-
 .text-center {
-    padding-left: 22px;
+  padding-left: 22px;
 }
 
 .heading {
-    color: white;
+  color: white;
 }
