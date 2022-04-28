@@ -10,6 +10,9 @@
 
 GrihSangini is a project working towards creating a brand new LinkedIn but for blue-collar workers. A place where blue-collar workers can mingle, upskill themselves, learn financial literacy and most importantly-find jobs for themselves. 
 
+### Do checkout deployed version of GrihSangini-
+[Deployed Link](https://gsg-rih-sangini.vercel.app/)
+
 ### Do check the pitch for more information-
 
 [Pitch link](https://www.canva.com/design/DAEv9QVgbcI/bVCXGhZ1ZPW26kT4xycqwQ/view?utm_content=DAEv9QVgbcI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
