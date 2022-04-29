@@ -1,6 +1,5 @@
 import React from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
 import {
   MDBInput,
   MDBCol,
@@ -9,8 +8,13 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 function Signup() {
+  const [visible, setVisible] = React.useState(false);
+  function handleChange() {
+    setVisible(!visible);
+  }
   return (
     <form
       style={{
@@ -37,12 +41,18 @@ function Signup() {
         <MDBInput
           className="mb-4"
           type="password"
+          type={visible ? "text" : "password"}
           id="form2Example2"
           label="Password"
         />
         <div class="rem">
           <MDBRow className="mb-4">
             <MDBCol className="d-flex justify-content-center">
+              <MDBCheckbox
+                id="form2Example3"
+                label="Show Password"
+                onChange={handleChange}
+              />
               <MDBCheckbox
                 id="form2Example3"
                 label="Remember me"
