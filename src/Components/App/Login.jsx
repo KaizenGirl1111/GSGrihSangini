@@ -12,10 +12,9 @@ import {
 } from "mdb-react-ui-kit";
 
 function Signup() {
-  const [isVisible, setIsVisible] = React.useState(false);
-  function handleVisibility() {
-    console.log("hello");
-    setIsVisible(!isVisible);
+  const [visible, setVisible] = React.useState(false);
+  function handleChange() {
+    setVisible(!visible);
   }
   return (
     <>
@@ -26,8 +25,7 @@ function Signup() {
           alignItems: "center",
           justifyContent: "center",
           margin: "auto",
-          marginBottom: "100px",
-          paddingTop: "150px",
+          paddingTop: "100px",
         }}
       >
         <div class="card">
@@ -45,17 +43,17 @@ function Signup() {
           />
           <MDBInput
             className="mb-4"
-            type={isVisible ? "text" : "password"}
+            type={visible ? "text" : "password"}
             id="form2Example2"
             label="Password"
           />
           <div class="rem">
             <MDBRow className="mb-4">
-              <MDBCol className="d-flex justify-content-space-between">
+              <MDBCol className="d-flex justify-content-center">
                 <MDBCheckbox
                   id="form2Example3"
                   label="Show Password"
-                  onChange={handleVisibility}
+                  onChange={handleChange}
                 />
                 <MDBCheckbox
                   id="form2Example3"

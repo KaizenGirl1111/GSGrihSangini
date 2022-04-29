@@ -1,5 +1,7 @@
 import React from 'react';
 import "./signup.css"
+import NavigationBar from './NavigationBar/NavigationBar';
+import Footer from './Footer/Footer';
 import {
   MDBInput,
   MDBCol,
@@ -11,12 +13,15 @@ import {
 
 function Signup() {
   return (
+    <>
+    <NavigationBar/>
     <form style={{
       width: "22rem",
       alignItems: "center",
       justifyContent: "center",
       margin: "auto",
-      paddingTop: '100px',
+      marginBottom:"100px",
+      paddingTop: '150px',
 
 
     }}>
@@ -24,9 +29,10 @@ function Signup() {
         <div class="block"><h1 class="heading text-center mb-4"><b>SignUp</b></h1></div>
 
         <MDBInput className='mb-4' type='email' id='form2Example1' label='Email' />
-        <MDBInput className='mb-4' type='password' id='form2Example2' label='Password' />
         <MDBInput className='mb-4' type='text' id='form2Example1' label='Contact Number' />
         <MDBInput className='mb-4' type='text' id='form2Example1' label='Address' />
+        <MDBInput className='mb-4' type='password' id='form2Example2' label='Password' />
+        <MDBInput className='mb-4' type='password' id='form2Example2' label='Confirm Password' />
         <div class="rem">
           <MDBRow className='mb-4'>
             <MDBCol className='d-flex justify-content-center'>
@@ -74,6 +80,8 @@ function Signup() {
 
       </div>
     </form>
+    <Footer/>
+    </>
   );
 }
 
