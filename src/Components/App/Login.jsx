@@ -8,11 +8,11 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 function Signup() {
-  const [visible,setVisible] = React.useState(false);
-  function handleChange()
-  {
+  const [visible, setVisible] = React.useState(false);
+  function handleChange() {
     setVisible(!visible);
   }
   return (
@@ -40,7 +40,8 @@ function Signup() {
         />
         <MDBInput
           className="mb-4"
-          type={visible?"text":"password"}
+          type="password"
+          type={visible ? "text" : "password"}
           id="form2Example2"
           label="Password"
         />
@@ -50,7 +51,7 @@ function Signup() {
               <MDBCheckbox
                 id="form2Example3"
                 label="Show Password"
-                onChange = {handleChange}
+                onChange={handleChange}
               />
               <MDBCheckbox
                 id="form2Example3"
@@ -58,6 +59,12 @@ function Signup() {
                 defaultChecked
               />
             </MDBCol>
+            <Link
+              to="/signup"
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              New User ?
+            </Link>
           </MDBRow>
         </div>
         <MDBBtn type="submit" className="mb-4" block color="white">
