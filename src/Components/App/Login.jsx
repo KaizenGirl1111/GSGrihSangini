@@ -10,6 +10,7 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const [visible, setVisible] = React.useState(false);
