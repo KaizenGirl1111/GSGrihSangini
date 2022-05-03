@@ -1,19 +1,21 @@
-const mongoose=require('mongoose')
-
+const mongoose = require('mongoose')
+const validator = require('validator')
+const bcrypt = require('bcryptjs')
 
 const workerSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: true,
         trim: true
     },
-    mobileNo:{
+    mobileNo: {
         type: Number,
+        unique: true,
         required: true
     },
-    category:[{                      
-       type: String,
-       require: true
+    category: [{
+        type: String,
+        require: true
     }],
     password: {
         type: String,
@@ -28,7 +30,14 @@ const workerSchema = new mongoose.Schema({
     }
 })
 
+workerSchema.pre('save', async function (next) {
+    const worker = this
+    if (worker.isModified('password')) {
+        worker.password = await bcrypt.hash(worker.password, 8)
+    }
+    next()
+})
 
 
-const worker=mongoose.model('worker', workerSchema)
-module.exports=worker
+const worker = mongoose.model('Worker', workerSchema)
+module.exports = worker

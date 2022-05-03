@@ -8,6 +8,8 @@ app.use(express.json())
 const userRoute=require('./routes/user')
 app.use(userRoute)
 
+const workerRoute=require('./routes/worker')
+app.use(workerRoute)
 
 app.listen(port,()=>{
     console.log("Backend server is listening on port 5000")
