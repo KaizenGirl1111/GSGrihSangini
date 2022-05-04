@@ -33,6 +33,10 @@ function Workerlogin() {
           <div className="abc"></div>
           <MDBInput
             className="mb-4"
+            label="MobileNo"
+          />
+          <MDBInput
+            className="mb-4"
             type={visible ? "text" : "password"}
             id="form2Example2"
             label="Password"
