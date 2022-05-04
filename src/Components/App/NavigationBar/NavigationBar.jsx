@@ -29,14 +29,14 @@ function NavigationBar(){
          <Navbar.Toggle/>
          <Navbar.Collapse id="responsive-navbar-nav">
            <Nav>
-             <Nav.Link href="#aboutus">About Us</Nav.Link>
-             <Nav.Link href="#services">Services</Nav.Link>
-             <Nav.Link href="#reviews">Reviews</Nav.Link>
-             <Nav.Link href="mailto:gsgrihsangini@gmail.com">Contact Us</Nav.Link>
-             <Nav.Link href="/Signup">SignUp</Nav.Link>
-             <Nav.Link href="/Login">Login</Nav.Link>
-             <Nav.Link href="/Workersignup">WorkerSignUp</Nav.Link>
-             <Nav.Link href="/Workerlogin">WorkerLogin</Nav.Link>
+             <Nav.Link className="NavLink" href="#aboutus">About Us</Nav.Link>
+             <Nav.Link className="NavLink" href="#services">Services</Nav.Link>
+             <Nav.Link className="NavLink" href="#reviews">Reviews</Nav.Link>
+             <Nav.Link className="NavLink" href="mailto:gsgrihsangini@gmail.com">Contact Us</Nav.Link>
+             <Nav.Link className="NavLink" href="/Signup">SignUp</Nav.Link>
+             <Nav.Link className="NavLink" href="/Login">Login</Nav.Link>
+             <Nav.Link className="NavLink" href="/Workersignup">WorkerSignUp</Nav.Link>
+             <Nav.Link className="NavLink" href="/Workerlogin">WorkerLogin</Nav.Link>
            </Nav>
          </Navbar.Collapse>
        </Container>
