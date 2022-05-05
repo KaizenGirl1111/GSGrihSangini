@@ -14,8 +14,16 @@ import { Link } from "react-router-dom";
 
 function Signup() {
   const [visible, setVisible] = React.useState(false);
-  function handleChange() {
-    setVisible(!visible);
+  const [email,setEmail] = React.useState("");
+  const [password,setPassword] = React.useState("");
+
+  
+  function handleSubmit()
+  {
+    console.log(email);
+    console.log(password);
+    //code here
+    
   }
   return (
     <>
@@ -29,9 +37,9 @@ function Signup() {
           paddingTop: "100px",
         }}
       >
-        <div class="card">
-          <div class="block">
-            <h1 class="heading text-center mb-4">
+        <div className="card">
+          <div className="block">
+            <h1 className="heading text-center mb-4">
               <b>Login</b>
             </h1>
           </div>
@@ -41,20 +49,22 @@ function Signup() {
             type="email"
             id="form2Example1"
             label="Email"
+            onChange={e => setEmail(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type={visible ? "text" : "password"}
             id="form2Example2"
+            onChange={e => setPassword(e.target.value)}
             label="Password"
           />
-          <div class="rem">
+          <div className="rem">
             <MDBRow className="mb-4">
               <MDBCol className="d-flex justify-content-center">
                 <MDBCheckbox
                   id="form2Example3"
                   label="Show Password"
-                  onChange={handleChange}
+                  onChange={()=>setVisible(!visible)}
                 />
                 <MDBCheckbox
                   id="form2Example3"
@@ -64,7 +74,7 @@ function Signup() {
               </MDBCol>
             </MDBRow>
           </div>
-          <MDBBtn type="submit" className="mb-4" block color="white">
+          <MDBBtn type="submit" className="mb-4" block color="white" onClick={handleSubmit}>
             Login
           </MDBBtn>
         </div>
