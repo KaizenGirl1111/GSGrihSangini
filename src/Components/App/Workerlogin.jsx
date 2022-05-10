@@ -37,14 +37,14 @@ function Workerlogin() {
           <MDBInput
             className="mb-4"
             label="MobileNo"
-            onChange={e => setPassword(e.target.value)}
+            onChange={e => setContactNumber(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type={visible ? "text" : "password"}
             id="form2Example2"
             label="Password"
-            onChange={e => setContactNumber(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
           />
           <div class="rem">
             <MDBRow className="mb-4">
