@@ -14,16 +14,13 @@ import { Link } from "react-router-dom";
 
 function Signup() {
   const [visible, setVisible] = React.useState(false);
-  const [email,setEmail] = React.useState("");
-  const [password,setPassword] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
-  
-  function handleSubmit()
-  {
+  function handleSubmit() {
     console.log(email);
     console.log(password);
     //code here
-    
   }
   return (
     <>
@@ -49,13 +46,13 @@ function Signup() {
             type="email"
             id="form2Example1"
             label="Email"
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type={visible ? "text" : "password"}
             id="form2Example2"
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             label="Password"
           />
           <div className="rem">
@@ -64,7 +61,7 @@ function Signup() {
                 <MDBCheckbox
                   id="form2Example3"
                   label="Show Password"
-                  onChange={()=>setVisible(!visible)}
+                  onChange={() => setVisible(!visible)}
                 />
                 <MDBCheckbox
                   id="form2Example3"
@@ -74,10 +71,22 @@ function Signup() {
               </MDBCol>
             </MDBRow>
           </div>
-          <MDBBtn type="submit" className="mb-4" block color="white" onClick={handleSubmit}>
+          <MDBBtn
+            type="submit"
+            className="mb-4"
+            block
+            color="white"
+            onClick={handleSubmit}
+          >
             Login
           </MDBBtn>
         </div>
+        <Link
+          to="/signup"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          New User?
+        </Link>
 
         <div className="text-center">
           <div className="row my-4 d-flex justify-content-center">
