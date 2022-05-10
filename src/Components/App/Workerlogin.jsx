@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import "./workerlogin.css";
 import NavigationBar from "./NavigationBar/NavigationBar";
@@ -12,6 +13,8 @@ import {
 
 function Workerlogin() {
   const [visible, setVisible] = React.useState(false);
+  const [contactNumber,setContactNumber] = React.useState();
+  const [password,setPassword] = React.useState("");
   return (
     <>
       <NavigationBar />
@@ -34,12 +37,14 @@ function Workerlogin() {
           <MDBInput
             className="mb-4"
             label="MobileNo"
+            onChange={e => setPassword(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type={visible ? "text" : "password"}
             id="form2Example2"
             label="Password"
+            onChange={e => setContactNumber(e.target.value)}
           />
           <div class="rem">
             <MDBRow className="mb-4">
