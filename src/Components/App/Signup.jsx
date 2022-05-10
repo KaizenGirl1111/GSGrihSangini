@@ -13,15 +13,13 @@ import {
 } from "mdb-react-ui-kit";
 
 function Signup() {
+  const [email, setEmail] = React.useState("");
+  const [contactNumber, setContactNumber] = React.useState();
+  const [password, setPassword] = React.useState("");
+  const [cpassword, setCpassword] = React.useState("");
+  const [address, setAddress] = React.useState("");
 
-  const [email,setEmail] = React.useState("");
-  const [contactNumber,setContactNumber] = React.useState();
-  const [password,setPassword] = React.useState("");
-  const [cpassword,setCpassword] = React.useState("");
-  const [address,setAddress] = React.useState("");
-
-  function handleSubmit()
-  {
+  function handleSubmit() {
     console.log(email);
     console.log(password);
     console.log(cpassword);
@@ -54,35 +52,35 @@ function Signup() {
             type="email"
             id="form2Example1"
             label="Email"
-            onChange ={(e)=>setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type="text"
             id="form2Example1"
             label="Contact Number"
-            onChange ={(e)=>setContactNumber(e.target.value)}
+            onChange={(e) => setContactNumber(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type="text"
             id="form2Example1"
             label="Address"
-            onChange ={(e)=>setAddress(e.target.value)}
+            onChange={(e) => setAddress(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type="password"
             id="form2Example2"
             label="Password"
-            onChange={(e)=>setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type="password"
             id="form2Example2"
             label="Confirm Password"
-            onChange ={(e)=>setCpassword(e.target.value)}
+            onChange={(e) => setCpassword(e.target.value)}
           />
           <div class="rem">
             <MDBRow className="mb-4">
@@ -93,18 +91,21 @@ function Signup() {
                   defaultChecked
                 />
               </MDBCol>
-              <Link
-                to="/login"
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                Already Registered ?
-              </Link>
             </MDBRow>
           </div>
-          <MDBBtn type="submit" className="mb-4" block color="white" onClick={handleSubmit}>
+          <MDBBtn
+            type="submit"
+            className="mb-4"
+            block
+            color="white"
+            onClick={handleSubmit}
+          >
             Sign Up
           </MDBBtn>
         </div>
+        <Link to="/login" style={{ display: "flex", justifyContent: "center" }}>
+          Already Registered ?
+        </Link>
 
         <div className="text-center">
           <div className="row my-4 d-flex justify-content-center">
