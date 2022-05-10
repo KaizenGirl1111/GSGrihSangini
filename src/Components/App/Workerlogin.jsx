@@ -10,7 +10,7 @@ import {
   MDBCheckbox,
   MDBBtn,
 } from "mdb-react-ui-kit";
-
+import { Link } from "react-router-dom";
 function Workerlogin() {
   const [visible, setVisible] = React.useState(false);
   const [contactNumber,setContactNumber] = React.useState();
@@ -34,11 +34,15 @@ function Workerlogin() {
             </h1>
           </div>
           <div className="abc"></div>
+<<<<<<< HEAD
           <MDBInput
             className="mb-4"
             label="MobileNo"
             onChange={e => setPassword(e.target.value)}
           />
+=======
+          <MDBInput className="mb-4" label="MobileNo" />
+>>>>>>> main
           <MDBInput
             className="mb-4"
             type={visible ? "text" : "password"}
@@ -60,6 +64,12 @@ function Workerlogin() {
                   defaultChecked
                 />
               </MDBCol>
+              <Link
+                to="/Workersignup"
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                New worker?
+              </Link>
             </MDBRow>
           </div>
           <MDBBtn type="submit" className="mb-4" block color="white">

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './NavigationBar.css';
 import logo from './brand_logo.png';
 
+
 function NavigationBar(){
     return (
       <Navbar
@@ -33,7 +34,7 @@ function NavigationBar(){
              <Nav.Link className="NavLink" href="/Login">Login</Nav.Link>
              <Nav.Link className="NavLink" href="/Workersignup">WorkerSignUp</Nav.Link>
              <Nav.Link className="NavLink" href="/Workerlogin">WorkerLogin</Nav.Link>
-             <Nav.Link className="NavLink" href="mailto:gsgrihsangini@gmail.com">Contact Us</Nav.Link>
+             <Nav.Link className="NavLink" href="/contact">Contact Us</Nav.Link>
            </Nav>
          </Navbar.Collapse>
        </Container>
