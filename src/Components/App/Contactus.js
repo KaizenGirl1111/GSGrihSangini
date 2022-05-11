@@ -13,7 +13,23 @@ import {
 } from "mdb-react-ui-kit";
 
 function ContactUS() {
-  return (
+
+  function handleSubmit() {
+    console.log(fname);
+    console.log(lname);
+    console.log(email);
+    console.log(contactNo);
+    console.log(message);
+    //code here
+
+  }
+  const [fname,setFname] = React.useState("");
+  const [lname,setLname] = React.useState("");
+  const [email,setEmail] = React.useState("");
+  const [contactNo,setContactNo] = React.useState("");
+  const [message,setMessage] = React.useState("");
+
+    return (
     <>
       <NavigationBar />
       <form
@@ -32,30 +48,46 @@ function ContactUS() {
               <b>Contact Us</b>
             </h1>
           </div>
-
+          <MDBInput
+            className="mb-4"
+            type="text"
+            id="form2Example1"
+            label="First Name"
+            onChange={(e)=> setFname(e.target.value)}
+          />
+          <MDBInput
+            className="mb-4"
+            type="text"
+            id="form2Example1"
+            label="Last Name"
+            onChange={(e)=> setLname(e.target.value)}
+          />
           <MDBInput
             className="mb-4"
             type="email"
             id="form2Example1"
             label="Email"
+            onChange={(e)=> setEmail(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type="text"
             id="form2Example1"
             label="Contact Number"
+            onChange={(e)=> setContactNo(e.target.value)}
           />
           <MDBInput
             className="mb-4"
             type="textarea"
             id="form2Example1"
             label="Message"
+            onChange={(e)=> setMessage(e.target.value)}
           />
 
           <div class="rem">
             <MDBRow className="mb-4"></MDBRow>
           </div>
-          <MDBBtn type="submit" className="mb-4" block color="white">
+          <MDBBtn type="submit" className="mb-4" block color="white" onClick={handleSubmit}>
             Submit
           </MDBBtn>
         </div>
