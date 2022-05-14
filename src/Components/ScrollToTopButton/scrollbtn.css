@@ -1,0 +1,20 @@
+.scrollbtn{
+    background-color: #5254D8;
+    position:fixed;
+    right: 2rem;
+    bottom: 2rem;
+    color: aliceblue;
+    font-size:20px;
+    border-radius:50%;
+    height:50px;
+    width:50px;
+    display: flex;
+    justify-content:center;
+    text-align:center;
+    align-items: center;
+}
+
+.scrollbtn:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 2px black;
+}

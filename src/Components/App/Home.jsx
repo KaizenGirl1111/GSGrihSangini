@@ -5,6 +5,7 @@ import TestimonialsContainer from './Containers/TestimonialsContainer/Testimonia
 import Footer from './Footer/Footer';
 import VideoContainer from './Containers/VideoContainer/VideoContainer';
 import NavigationBar from './NavigationBar/NavigationBar';
+import ScrollBtn from '../ScrollToTopButton/Scrollbtn';
 
 function Home(){
 
@@ -16,6 +17,7 @@ function Home(){
     <TestimonialsContainer/>
     <VideoContainer/>
     <Footer />
+    <ScrollBtn/>
     </div>
   );
 
