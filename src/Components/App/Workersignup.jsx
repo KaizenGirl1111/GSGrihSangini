@@ -1,15 +1,12 @@
-<<<<<<< HEAD
+
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import "./workersignup.css"
 import NavigationBar from './NavigationBar/NavigationBar';
 import Footer from './Footer/Footer';
-=======
-import React from "react";
 import "./workersignup.css";
-import NavigationBar from "./NavigationBar/NavigationBar";
-import Footer from "./Footer/Footer";
->>>>>>> main
+
+
 import {
   MDBInput,
   MDBCol,
@@ -20,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 
 function Workersignup() {
-<<<<<<< HEAD
+
 
     //use-state Hook
     const [FirstName,setFirstName] = React.useState("");
@@ -68,7 +65,6 @@ function Workersignup() {
         <Footer/>
         </>
     );
-=======
   return (
     <>
       <NavigationBar />
@@ -127,7 +123,7 @@ function Workersignup() {
       <Footer />
     </>
   );
->>>>>>> main
+
 }
 
 export default Workersignup;
