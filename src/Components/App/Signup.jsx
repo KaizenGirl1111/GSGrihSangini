@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import "./signup.css";
 import { Link } from "react-router-dom";
@@ -13,19 +14,24 @@ import {
 } from "mdb-react-ui-kit";
 
 function Signup() {
+  const [name,setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [contactNumber, setContactNumber] = React.useState();
   const [password, setPassword] = React.useState("");
   const [cpassword, setCpassword] = React.useState("");
   const [address, setAddress] = React.useState("");
 
-  function handleSubmit() {
-    console.log(email);
-    console.log(password);
-    console.log(cpassword);
-    console.log(contactNumber);
-    console.log(address);
-    //code here
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://localhost:5000/userSignUp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({name: name,contactNo: contactNumber,address: address, email: email, password: password })
+    });
+    const json=await response.json();
+    console.log(json);
   }
   return (
     <>
@@ -46,7 +52,13 @@ function Signup() {
               <b>SignUp</b>
             </h1>
           </div>
-
+          <MDBInput
+            className="mb-4"
+            type="name"
+            id="form2Example1"
+            label="name"
+            onChange={(e) => setName(e.target.value)}
+          />
           <MDBInput
             className="mb-4"
             type="email"

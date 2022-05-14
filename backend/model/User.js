@@ -8,7 +8,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-
+    contactNo: {
+        type: Number,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
     // This also validates whether the user has entered valid and unique email
     email: {
         type: String,

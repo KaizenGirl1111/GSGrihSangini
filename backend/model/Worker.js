@@ -3,7 +3,12 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 
 const workerSchema = new mongoose.Schema({
-    name: {
+    firstname: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    lastname: {
         type: String,
         required: true,
         trim: true

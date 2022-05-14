@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const mongoose=require('mongoose')
 const express=require('express')
 const User=require('../model/User')
@@ -11,7 +12,7 @@ router.post('/userSignUp',async (req,res)=>{
         await user.save()
         res.status(201).send(user)
     }catch(e){
-        res.status(400).send('Something went Wrong!!')
+        res.status(400).send('false')
     }
 })
 
@@ -22,7 +23,7 @@ router.post('/userLogin',async (req,res)=>{
         const user = await User.findByCredentials(req.body.email,req.body.password)
         res.send(user) 
     }catch(e){
-        res.status(400).send('Something went wrong!!')
+        res.status(400).send('false')
     }
 })
 

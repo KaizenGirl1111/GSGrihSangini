@@ -17,10 +17,17 @@ function Signup() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  function handleSubmit() {
-    console.log(email);
-    console.log(password);
-    //code here
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://localhost:5000/userLogin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email: email, password: password })
+    });
+    const json=await response.json();
+    console.log(json);
   }
   return (
     <>
