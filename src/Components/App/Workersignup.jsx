@@ -1,133 +1,95 @@
-<<<<<<< HEAD
-/* eslint-disable no-unused-vars */
-import React from 'react';
-import "./workersignup.css"
-import NavigationBar from './NavigationBar/NavigationBar';
-import Footer from './Footer/Footer';
-=======
 import React from "react";
-import "./workersignup.css";
+import "./signup.css";
+import { Link } from "react-router-dom";
+import { Fragment, useState } from "react";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
->>>>>>> main
-import {
-  MDBInput,
-  MDBCol,
-  MDBRow,
-  MDBCheckbox,
-  MDBBtn,
-} from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
-
-function Workersignup() {
-<<<<<<< HEAD
-
-    //use-state Hook
-    const [FirstName,setFirstName] = React.useState("");
-    const [LastName,setLastName] = React.useState("");
-    const [contactNumber,setContactNumber] = React.useState();
-    const [password,setPassword] = React.useState("");
-    const [cpassword,setCpassword] = React.useState("");
-    
-    return (
-        <><NavigationBar/>
-        <form style={{
-            width: "22rem",
-            alignItems: "center",
-            justifyContent: "center",
-            margin: "auto",
-            paddingTop: '100px',
+import {RiLockPasswordFill} from "react-icons/ri"
+import {MdEmail} from "react-icons/md"
+import {BsFillPersonFill} from "react-icons/bs";
+import {BsFillTelephoneFill} from "react-icons/bs";
 
 
-        }}>
-            <div class="card">
-                <div class="block"><h1 class="heading text-center mb-4"><b>SignUp-Worker</b></h1></div>
-                <div className='abc'></div>
-                <MDBInput className='mb-4' id='form2Example1' label='FirstName'  onChange={e => setFirstName(e.target.value)}/>
-                <MDBInput className='mb-4' id='form2Example1' label='LastName'   onChange={e => setLastName(e.target.value)}/>
-                <MDBInput className='mb-4' id='form2Example1' label='ContactNo' onChange={e => setContactNumber(e.target.value)}/>
-                <MDBInput className='mb-4' type='password' id='form2Example2' label='Password' onChange={e => setPassword(e.target.value)}/>
-                <MDBInput className='mb-4' type='password' id='form2Example2' label='Confirm Password' onChange={e => setCpassword(e.target.value)}/>
-                <div class="rem">
-                    <MDBRow className='mb-4'>
-                        <MDBCol className='d-flex justify-content-center'>
-                            <MDBCheckbox id='form2Example3' label='Remember me' defaultChecked />
-                        </MDBCol>
+function Signup() {
+  const [name,setName] = React.useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpassword, setCpassword] = useState("");
+  const [contactNo, setContactNo] = useState("");
+  const [address,setAddress] = useState("");
 
-                    </MDBRow>
-                </div>
-                <MDBBtn type='submit' className='mb-4' block color='white'>
-                    SignUp
-                </MDBBtn>
+  async function handleSubmit(e) {
+    e.preventDefault();
+    //code here
 
+  }
 
-            </div>
-
-
-        </form>
-        <Footer/>
-        </>
-    );
-=======
   return (
-    <>
-      <NavigationBar />
-      <form
-        style={{
-          width: "22rem",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "auto",
-          paddingTop: "100px",
-        }}
-      >
-        <div class="card">
-          <div class="block">
-            <h1 class="heading text-center mb-4">
-              <b>SignUp-Worker</b>
-            </h1>
-          </div>
-          <div className="abc"></div>
-          <MDBInput className="mb-4" id="form2Example1" label="FirstName" />
-          <MDBInput className="mb-4" id="form2Example1" label="LastName" />
-          <MDBInput
-            className="mb-4"
-            type="password"
-            id="form2Example2"
-            label="Password"
+    <Fragment>
+    <NavigationBar />
+      <form className="login_form" onSubmit={handleSubmit}>
+        <h1 className="login_heading">Worker Signup</h1>
+
+        <div className="input_element">
+        <BsFillPersonFill/>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Name"
+            autoComplete="on"
           />
-          <MDBInput
-            className="mb-4"
-            type="password"
-            id="form2Example2"
-            label="Confirm Password"
-          />
-          <div class="rem">
-            <MDBRow className="mb-4">
-              <MDBCol className="d-flex justify-content-center">
-                <MDBCheckbox
-                  id="form2Example3"
-                  label="Remember me"
-                  defaultChecked
-                />
-              </MDBCol>
-            </MDBRow>
-            <Link
-              to="/Workerlogin"
-              style={{ display: "flex", justifyContent: "center" }}
-            >
-              Already registered worker?
-            </Link>
-          </div>
-          <MDBBtn type="submit" className="mb-4" block color="white">
-            SignUp
-          </MDBBtn>
         </div>
+        
+        <div className="input_element">
+        <MdEmail/>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            autoComplete="on"
+          />
+        </div>
+
+        <div className="input_element">
+        <BsFillTelephoneFill/>
+          <input
+            type="number"
+            value={contactNo}
+            onChange={(e) => setContactNo(e.target.value)}
+            placeholder="Contact Number"
+          />
+        </div>
+
+        <div className="input_element">
+        <RiLockPasswordFill/>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+        </div>
+
+        <div className="input_element">
+        <RiLockPasswordFill/>
+          <input
+            type="password"
+            value={cpassword}
+            onChange={(e) => setCpassword(e.target.value)}
+            placeholder="Confirm Password"
+          />
+        </div>
+
+        <button type="submit">Signup</button>
+        <Link to="/Workerlogin" className="registerlink">
+          Already registered?
+        </Link>
       </form>
       <Footer />
-    </>
+    </Fragment>
   );
->>>>>>> main
 }
 
-export default Workersignup;
+export default Signup;

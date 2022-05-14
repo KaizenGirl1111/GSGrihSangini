@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { Fragment, useState } from "react";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
-import {RiLockPasswordFill} from "react-icons/ri"
-import {MdEmail} from "react-icons/md"
-import {BsFillTelephoneFill} from "react-icons/bs"
+import {RiLockPasswordFill} from "react-icons/ri";
+import {MdEmail} from "react-icons/md";
+import {BsFillTelephoneFill} from "react-icons/bs";
+import {AiFillHome} from "react-icons/ai";
 
 
 function Signup() {
@@ -40,7 +41,7 @@ function Signup() {
         </div>
 
         <div className="input_element">
-        <RiLockPasswordFill/>
+        <BsFillTelephoneFill/>
           <input
             type="number"
             value={contactNo}
@@ -50,7 +51,7 @@ function Signup() {
         </div>
 
         <div className="input_element">
-        <RiLockPasswordFill/>
+        <AiFillHome/>
           <input
             type="text"
             value={address}
@@ -79,9 +80,9 @@ function Signup() {
           />
         </div>
 
-        <button type="submit">Login</button>
+        <button type="submit">Signup</button>
         <Link to="/signup" className="registerlink">
-          Create a new account?
+          Already registered?
         </Link>
       </form>
       <Footer />
