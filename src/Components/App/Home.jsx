@@ -8,7 +8,14 @@ import NavigationBar from './NavigationBar/NavigationBar';
 import ScrollBtn from '../ScrollToTopButton/Scrollbtn';
 
 function Home(){
+  const [offset, setOffset] = React.useState(0);
 
+    React.useEffect(() => {
+        const onScroll = () => setOffset(window.pageYOffset);
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
   return (
  <div>
    <NavigationBar />
@@ -17,7 +24,8 @@ function Home(){
     <TestimonialsContainer/>
     <VideoContainer/>
     <Footer />
-    <ScrollBtn/>
+    { offset>0 && 
+    <ScrollBtn/>}
     </div>
   );
 
