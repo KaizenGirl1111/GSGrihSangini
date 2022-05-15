@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import './NavigationBar.css';
 import logo from './brand_logo.png';
 
-
 function NavigationBar(){
     return (
       <Navbar
@@ -12,6 +11,7 @@ function NavigationBar(){
       fixed="top"
       variant="dark"
      >
+     
        <Container>
          <Navbar.Brand href="#home">
            <div className="nav-brand">
@@ -38,6 +38,7 @@ function NavigationBar(){
            </Nav>
          </Navbar.Collapse>
        </Container>
+      
      </Navbar>
     );
 }
