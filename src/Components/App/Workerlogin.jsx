@@ -34,15 +34,7 @@ function Workerlogin() {
             </h1>
           </div>
           <div className="abc"></div>
-<<<<<<< HEAD
-          <MDBInput
-            className="mb-4"
-            label="MobileNo"
-            onChange={e => setPassword(e.target.value)}
-          />
-=======
           <MDBInput className="mb-4" label="MobileNo" />
->>>>>>> main
           <MDBInput
             className="mb-4"
             type={visible ? "text" : "password"}
