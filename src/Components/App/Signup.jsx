@@ -4,33 +4,53 @@ import { Link } from "react-router-dom";
 import { Fragment, useState } from "react";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
-import {RiLockPasswordFill} from "react-icons/ri";
-import {MdEmail} from "react-icons/md";
-import {BsFillTelephoneFill} from "react-icons/bs";
-import {AiFillHome} from "react-icons/ai";
-
+import { RiLockPasswordFill } from "react-icons/ri";
+import { MdEmail } from "react-icons/md";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { AiFillHome } from "react-icons/ai";
+import { BsFillPersonFill } from "react-icons/bs";
 
 function Signup() {
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [contactNo, setContactNo] = useState("");
-  const [address,setAddress] = useState("");
+  const [address, setAddress] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
-    //code here
+    const response = await fetch('http://localhost:5000/userSignUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+
+      },
+      body: JSON.stringify({ name: name, contactNo: contactNo, address: address, email: email, password: password })
+    });
+    const json = await response.json();
 
   }
 
   return (
     <Fragment>
-    <NavigationBar />
+      <NavigationBar />
       <form className="login_form" onSubmit={handleSubmit}>
         <h1 className="login_heading">Signup</h1>
 
         <div className="input_element">
-        <MdEmail/>
+          <BsFillPersonFill />
+          <input
+            type="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="name"
+            autoComplete="on"
+          />
+        </div>
+
+        <div className="input_element">
+          <MdEmail />
           <input
             type="email"
             value={email}
@@ -41,7 +61,7 @@ function Signup() {
         </div>
 
         <div className="input_element">
-        <BsFillTelephoneFill/>
+          <BsFillTelephoneFill />
           <input
             type="number"
             value={contactNo}
@@ -51,7 +71,7 @@ function Signup() {
         </div>
 
         <div className="input_element">
-        <AiFillHome/>
+          <AiFillHome />
           <input
             type="text"
             value={address}
@@ -61,7 +81,7 @@ function Signup() {
         </div>
 
         <div className="input_element">
-        <RiLockPasswordFill/>
+          <RiLockPasswordFill />
           <input
             type="password"
             value={password}
@@ -71,7 +91,7 @@ function Signup() {
         </div>
 
         <div className="input_element">
-        <RiLockPasswordFill/>
+          <RiLockPasswordFill />
           <input
             type="password"
             value={cpassword}
