@@ -4,3 +4,14 @@ html,body{
     height:100%;
     font-family: 'Rubik', sans-serif !important;
 }
+::-webkit-scrollbar{
+    width: 15px;
+    height: 400px;
+}
+::-webkit-scrollbar-track{
+    background: #5254D8
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(to top, rgb(23, 95, 212), rgb(4, 50, 123));
+    border-radius: 20px;
+}
