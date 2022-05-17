@@ -30,6 +30,7 @@ function NavigationBar(){
          <Navbar.Toggle/>
          <Navbar.Collapse id="responsive-navbar-nav">
            <Nav>
+           <Nav.Link className="NavLink" href="/">Home</Nav.Link>
              <Nav.Link className="NavLink" href="/Signup">SignUp</Nav.Link>
              <Nav.Link className="NavLink" href="/Login">Login</Nav.Link>
              <Nav.Link className="NavLink" href="/Workersignup">WorkerSignUp</Nav.Link>
