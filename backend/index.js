@@ -1,9 +1,10 @@
 require('./db/mongoose.js')
 const express=require('express')
+const cors = require('cors');
 const app=express()
 const port=process.env.PORT || 5000
 app.use(express.json())
- 
+app.use(cors())
 
 const userRoute=require('./routes/user')
 app.use(userRoute)
