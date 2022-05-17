@@ -12,14 +12,22 @@ import {BsFillTelephoneFill} from "react-icons/bs";
 
 function Signup() {
   const [name,setName] = React.useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [contactNo, setContactNo] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
-    //code here
+    const response = await fetch('http://localhost:5000/workerSignUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+
+      },
+      body: JSON.stringify({ name: name, mobileNo: contactNo, password: password })
+    });
+    const json = await response.json();
+    console.log(json)
 
   }
 
@@ -40,17 +48,6 @@ function Signup() {
           />
         </div>
         
-        <div className="input_element">
-        <MdEmail/>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            autoComplete="on"
-          />
-        </div>
-
         <div className="input_element">
         <BsFillTelephoneFill/>
           <input
@@ -94,5 +91,5 @@ function Signup() {
 
 export default Signup;
 
-export default Signup;
+
 
