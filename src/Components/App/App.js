@@ -9,7 +9,7 @@ import ContactUS from './Contactus';
 import Workersignup from './Workersignup';
 import Workerlogin from './Workerlogin';
 import {Scrollbars} from "react-custom-scrollbars";
-
+import AboutUs from "./AboutUs"
 
 function App() {
 
@@ -26,7 +26,7 @@ function App() {
           <Route path="/Contact" element={<ContactUS />} />
           <Route path="/Workersignup" element={<Workersignup />} />
           <Route path="/Workerlogin" element={<Workerlogin />} />
-
+          <Route path="/AboutUs" element={<AboutUs />} />
          </Routes>
 
 
