@@ -1,6 +1,10 @@
 
 .footer-container{
     color:rgb(240, 230, 230);
+    clear: both;
+    position: relative;
+    height: 200px;
+    top:-0px;
 }
 
 .footer{
