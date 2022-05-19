@@ -6,8 +6,8 @@ function WorkerCard({name,age,description,forte}){
       <div className="service-card">
         <h1 className="service-text">{name}</h1>
         <br/>
-        <h3> Age : {age}</h3>
-        <h3> Description : {description}</h3>
+        <h3> Age : {age} </h3>
+        <h3> Description : {description} </h3>
         <hr/>
         {forte.map(task => {
             return(
