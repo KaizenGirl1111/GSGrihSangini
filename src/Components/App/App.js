@@ -7,8 +7,8 @@ import Home from "./Home";
 import Login from "./Login";
 import ContactUS from "./Contactus";
 import Workersignup from "./Workersignup";
-import Workerlogin from "./Workerlogin";
-import WorkersPage from "./Workers/Workers";
+import Workerlogin from './Workerlogin';
+import AboutUs from "./AboutUs"
 
 function App() {
   return (
@@ -21,10 +21,12 @@ function App() {
           <Route path="/Contact" element={<ContactUS />} />
           <Route path="/Workersignup" element={<Workersignup />} />
           <Route path="/Workerlogin" element={<Workerlogin />} />
-          <Route path="services">
-            <Route path=":service_type" element={<WorkersPage/>}></Route>
-          </Route>
-        </Routes>
+          <Route path="/AboutUs" element={<AboutUs />} />
+         </Routes>
+
+
+
+
       </Router>
     </div>
   );
