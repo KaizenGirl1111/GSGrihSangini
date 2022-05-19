@@ -62,19 +62,25 @@ Refer to this mobile view design as the wireframe for the website-
 - [Documentation](https://docs.mongodb.com/)
 - [Video-Tutorial-1](https://www.youtube.com/watch?v=ofme2o29ngU)
 - [Video-Tutorial-2](https://www.youtube.com/watch?v=9OPP_1eAENg&list=PL4cUxeGkcC9jpvoYriLI0bY8DOgWZfi6u)
+- [Video-Tutorial-3](https://youtu.be/W1Kttu53qTg)
+
 
 ### Node and Express
 - [Node Documentation](https://nodejs.org/en/docs/)
 - [Express Documentation](https://expressjs.com/)
 - [Video-Tutorial-1](https://www.youtube.com/watch?v=Oe421EPjeBE)
+- [Video-Tutorial-2](https://youtu.be/2ojkb44XObc)
+- [Video-Tutorial-3](https://youtu.be/SccSCuHhOw0)
 
 ### React.js
 - [Documentation](https://reactjs.org/docs/getting-started.html)
 - [Video-Tutorial-1](https://www.youtube.com/watch?v=4UZrsTqkcW4)
 - [Video-Tutorial-2](https://www.youtube.com/watch?v=bMknfKXIFA8)
+- [Video-Tutorial-3](https://youtu.be/w7ejDZ8SWv8)
 
 ### A Integrated resource for MERN
 - [MERN](https://www.youtube.com/watch?v=ngc9gnGgUdA&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu)
+- [MERN](https://www.youtube.com/watch?v=fSmp7Cv-c_0&list=PLwGdqUZWnOp3t3qT7pvAznwUDzKbhEcCc)
 
 
 # Getting Started with Create React App
