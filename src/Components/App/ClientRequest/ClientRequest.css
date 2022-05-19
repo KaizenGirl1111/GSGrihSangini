@@ -1,0 +1,76 @@
+.client-body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #5254D8;
+    min-width: 100vw;
+    min-height:100vh;
+    font-family: 'Cantarell', sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.cli-req-heading{
+    margin-top: 3%;
+}
+.client-cards{
+    margin-top: 10%;
+    width: 40vw;
+    background:#fff;
+    height: 50vh;
+    
+    
+}
+.clients-data{
+    display: flex;
+}
+.box{
+    position: relative;
+    margin-top: 10%;
+    width: 30vw;
+    background:#fff;
+    height: 40vh;
+    box-shadow: 0 30px 30px rgba(0,0,0,0.5);
+
+}
+.box .imgBx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.box .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+.box:hover .imgBx img{
+    opacity: 0.2;
+}
+.box .content{
+    position: absolute;
+    bottom: 20px;
+    left: 10%;
+    width: 80%;
+    background: #5254D8;
+    color: #fff;
+    height: 60px;
+    transition: 0.5s;
+    overflow: hidden;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.box:hover .content{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}

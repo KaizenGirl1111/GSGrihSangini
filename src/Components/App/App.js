@@ -8,6 +8,7 @@ import Login from "./Login"
 import ContactUS from './Contactus';
 import Workersignup from './Workersignup';
 import Workerlogin from './Workerlogin';
+import ClientRequest from './ClientRequest/ClientRequest.jsx';
 import {Scrollbars} from "react-custom-scrollbars";
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Contact" element={<ContactUS />} />
           <Route path="/Workersignup" element={<Workersignup />} />
           <Route path="/Workerlogin" element={<Workerlogin />} />
+          <Route path='/Workerlogin/clientrequest' element={<ClientRequest/>}/>
 
          </Routes>
 

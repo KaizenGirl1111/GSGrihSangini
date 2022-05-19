@@ -1,20 +1,33 @@
 import React, { Fragment, useState } from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
 import {BsFillTelephoneFill} from "react-icons/bs";
-import {RiLockPasswordFill} from "react-icons/ri"
+import {RiLockPasswordFill} from "react-icons/ri";
+import axios from "axios";
+
 
 function Login() {
-  const [contactNo, setContactNo] = useState("");
-  const [password, setPassword] = useState("");
+  const[data,setData]=useState({
+    
+    mobileNo:"",
+    password:"",
+   
+
+  })
+
+  const navigate=useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    //code here
+    await axios.post("http://localhost:5000/workerLogin",data)
+    navigate("./clientrequest");
 
   }
+  function handleChange({currentTarget:input}){
+    setData({...data,[input.name]:input.value});
+}
 
   return (
     <Fragment>
@@ -26,8 +39,9 @@ function Login() {
         <BsFillTelephoneFill/>
           <input
             type="number"
-            value={contactNo}
-            onChange={(e) => setContactNo(e.target.value)}
+            name="mobileNo"
+            value={data.mobileNo}
+            onChange={handleChange}
             placeholder="Contact Number"
             autoComplete="on"
           />
@@ -36,9 +50,10 @@ function Login() {
         <div className="input_element">
         <RiLockPasswordFill/>
           <input
+            name="password"
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={data.password}
+            onChange={handleChange}
             placeholder="Password"
           />
         </div>
@@ -56,5 +71,5 @@ function Login() {
 
 export default Login;
 
-export default Login;
+
 
