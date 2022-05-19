@@ -15,6 +15,7 @@ import {useNavigate} from "react-router-dom";
 
 
 function Signup() {
+
  /*  const [data,setData]=useState({
       name:"",
       email:"",
@@ -22,6 +23,9 @@ function Signup() {
   }) */
 /*   const [name,setName] = React.useState("");
   const [email, setEmail] = useState("");
+
+  const [name,setName] = React.useState("");
+
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [contactNo, setContactNo] = useState(""); */
@@ -38,6 +42,7 @@ const navigate=useNavigate();
 
 async  function handleSubmit(e) {
     e.preventDefault();
+
     if(data.password===data.cpassword){
      
       /* console.log(name,email,password,contactNo); */
@@ -47,6 +52,18 @@ async  function handleSubmit(e) {
    
     }
     //code here
+
+    const response = await fetch('http://localhost:5000/workerSignUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+
+      },
+      body: JSON.stringify({ name: name, mobileNo: contactNo, password: password })
+    });
+    const json = await response.json();
+    console.log(json)
+
 
   }
   function handleChange({currentTarget:input}){
@@ -74,6 +91,7 @@ async  function handleSubmit(e) {
         </div>
         
         <div className="input_element">
+
         <MdEmail/>
           <input
             type="email"
@@ -86,6 +104,7 @@ async  function handleSubmit(e) {
         </div>
 
         <div className="input_element">
+
         <BsFillTelephoneFill/>
           <input
             type="number"
@@ -129,7 +148,11 @@ async  function handleSubmit(e) {
 }
 
 
+
 export default Signup;
 
+
+
+export default Signup;
 
 

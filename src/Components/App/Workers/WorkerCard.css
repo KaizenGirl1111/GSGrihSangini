@@ -1,15 +1,17 @@
 
 .service-card{
-    display: flex;
+     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width:250px;
-    height:250px;
+    align-items: flex-start; 
+    width:1200px;
+    height:100%;
     border-radius: 50px;
     box-shadow:  20px 20px 60px #bebebe,
                 -20px -20px 60px #ffffff;
-    margin:2%;
+    padding:20px;
+    border: 5px solid #5254D8;
+    margin-top:30px;
 }
 
 .service-img{
@@ -18,8 +20,7 @@
 }
 
 .service-text{
-    font-weight: 600;
-    color:#a89f9f;
+    color:black;
 }
 .service-card:hover{
     background-color:#B7B9F4;

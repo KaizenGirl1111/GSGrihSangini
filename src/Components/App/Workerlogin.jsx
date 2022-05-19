@@ -21,8 +21,21 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
     await axios.post("http://localhost:5000/workerLogin",data)
     navigate("./clientrequest");
+
+    const response = await fetch('http://localhost:5000/workerLogin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+
+      },
+      body: JSON.stringify({mobileNo: contactNo, password: password })
+    });
+    const json = await response.json();
+    console.log(json)
+
 
   }
   function handleChange({currentTarget:input}){
@@ -69,7 +82,11 @@ function Login() {
 }
 
 
+
 export default Login;
 
+
+
+export default Login;
 
 

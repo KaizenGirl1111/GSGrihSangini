@@ -133,7 +133,7 @@ const data=[{
     description:"I can cook Marvadi, Pathani and South Indian dishes. Also I understand the importance of keeping the house clean",
     languages:["Hind","Urdu"],
     phone_no:"9792999398"
-    },
+    },  
     {
     name:"Atmaram Bhide",
     age:55,
@@ -142,3 +142,5 @@ const data=[{
     languages:["Hind","Sanskrit","Bengali"],
     phone_no:"9712345890"
     }]
+
+    export default data;
