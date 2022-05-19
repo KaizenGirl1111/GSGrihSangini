@@ -9,7 +9,8 @@ import ContactUS from './Contactus';
 import Workersignup from './Workersignup';
 import Workerlogin from './Workerlogin';
 import {Scrollbars} from "react-custom-scrollbars";
-
+import {authentication} from "../../firebase-config";
+import {onAuthStateChanged} from "firebase/auth"
 
 function App() {
 
