@@ -9,7 +9,8 @@ import { MdEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
-
+import {authentication} from "../../firebase-config";
+import {GoogleAuthProvider,signInWithPopup} from "firebase/auth"
 function Signup() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("");
@@ -17,6 +18,28 @@ function Signup() {
   const [cpassword, setCpassword] = useState("");
   const [contactNo, setContactNo] = useState("");
   const [address, setAddress] = useState("");
+
+  function handleGoogleAuth(){
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(authentication, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      alert(user.displayName+" has logged in");
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      alert(errorMessage);
+    });
+
+    
+}
+
+
+    
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -31,6 +54,8 @@ function Signup() {
     const json = await response.json();
 
   }
+
+  
 
   return (
     <Fragment>
@@ -104,6 +129,10 @@ function Signup() {
         <Link to="/signup" className="registerlink">
           Already registered?
         </Link>
+        <div className="social">
+          <p>OR</p>
+          <button onClick={handleGoogleAuth} >Google +</button>
+        </div>
       </form>
       <Footer />
     </Fragment>
