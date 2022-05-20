@@ -10,7 +10,7 @@ import Workersignup from './Workersignup';
 import Workerlogin from './Workerlogin';
 import {Scrollbars} from "react-custom-scrollbars"; 
 
-
+import AboutUs from "./AboutUs"
 function App() {
 
   return (
