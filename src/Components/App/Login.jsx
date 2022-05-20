@@ -26,6 +26,7 @@ function Login() {
   return (
     <Fragment>
       <NavigationBar />
+      <div class="one"></div>
       <form className="login_form" onSubmit={handleSubmit}>
         <h1 className="login_heading">Login</h1>
 
