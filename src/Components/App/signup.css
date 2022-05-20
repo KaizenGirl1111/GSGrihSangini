@@ -33,7 +33,7 @@
     background-color: white;
   }
   
-  .login_form > button {
+  .login_form > button, .social > button {
     padding: 12px 0px;
     margin-top: 10px;
     border: none;
@@ -45,8 +45,18 @@
     cursor: pointer;
   }
   
-  .login_form > button:hover {
+  .login_form > button:hover, .social > button:hover {
     transform: scale(1.02);
+  }
+
+  .social{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .social > button {
+    width: 100%;
   }
   
   .message_container {
