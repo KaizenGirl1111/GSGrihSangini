@@ -1,16 +1,15 @@
 import React from "react";
-import "./signup.css";
+import "./ContactUs.css";
 import { Fragment, useState } from "react";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
 import {MdEmail} from "react-icons/md";
 import {BsFillTelephoneFill} from "react-icons/bs";
-import {AiFillHome} from "react-icons/ai";
 import {BsFillPersonFill} from "react-icons/bs";
 import {RiMessage2Fill} from "react-icons/ri";
 
 
-function Signup() {
+function Contact() {
   const [name,setName] = useState("");
   const [email, setEmail] = useState("");
   const [contactNo, setContactNo] = useState("");
@@ -25,8 +24,8 @@ function Signup() {
   return (
     <Fragment>
     <NavigationBar />
-      <form className="login_form" onSubmit={handleSubmit}>
-        <h1 className="login_heading">Contact Us</h1>
+      <form className="contact_form" onSubmit={handleSubmit}>
+        <h1 className="contact_heading">Contact Us</h1>
 
         <div className="input_element">
         <BsFillPersonFill/>
@@ -77,4 +76,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Contact;

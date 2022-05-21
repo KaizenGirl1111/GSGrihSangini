@@ -52,9 +52,15 @@ function Login() {
         </div>
 
         <button type="submit">Login</button>
-        <Link to="/signup" className="registerlink">
+        <div style={{display:"flex",justifyContent:"space-around"}}>
+        <Link to="/forgot" className="registerlink" style={{fontSize:"13px",textDecoration:"none"}}>
+          Forgot password?
+        </Link>
+        <Link to="/signup" className="registerlink" style={{fontSize:"13px",textDecoration:"none"}}>
           Create a new account?
         </Link>
+        
+        </div>
       </form>
       <Footer/>
     </Fragment>

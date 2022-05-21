@@ -39,8 +39,6 @@ function Signup() {
 }
 
 
-    
-
   async function handleSubmit(e) {
     e.preventDefault();
     const response = await fetch('http://localhost:5000/userSignUp', {
