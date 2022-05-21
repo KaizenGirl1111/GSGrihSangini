@@ -2,17 +2,41 @@ const mongoose=require('mongoose')
 const express=require('express')
 const User=require('../model/User')
 const router=new express.Router()
+const send = require('../mailer/mailer');
 
 
 //SIGNUP-ENDPOINT
-router.post('/userSignUp',async (req,res)=>{
+router.post('/userSignUp',(req,res)=>{
     const user=new User(req.body)
-    try{
-        await user.save()
-        res.status(201).send(user)
-    }catch(e){
+    user.save()
+    .then(()=>{
+        const mailOptions ={
+            from:"no-reply@gmail.com", 
+            to:user.email, 
+            subject: "Welcome to GrihSangini", 
+            html:   `<h3>Hi ${user.name},<h3 />
+                    <h4>Welcome to GrihSangini.<h4 />
+                    <p>You have successfully created an account on GrihSangini. We’re thrilled to see you here!</p>
+                    <p>
+                    At GrihSangini we're trying to build a LinkedIn for low wage workers and a platform for
+                    employers for easy and fast hiring. We provide upskilling certification for our workers in their domains and equip them
+                    with latest government schemes for them so that they can be better financially planned.
+                    </p>
+                    <p>
+                    We’re confident that GrihSangini will help you to get the best worker for your work
+                    </p>
+                    <p>
+                    Thank You !!
+                    </p>`
+                }
+                
+                send(mailOptions)
+                return res.status(201).send(user);
+            })
+    .catch(e=>{
         res.status(400).send('Something went Wrong!!')
-    }
+    })
+        
 })
 
 
