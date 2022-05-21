@@ -1,7 +1,9 @@
 .login_heading {
   margin: 1rem auto;
 }
-
+.one{
+  padding-bottom: 100px;
+}
 .login_form {
   width: 400px;
   display: flex;

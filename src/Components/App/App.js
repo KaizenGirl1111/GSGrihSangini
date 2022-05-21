@@ -14,6 +14,7 @@ import {Scrollbars} from "react-custom-scrollbars";
 
 
 import AboutUs from "./AboutUs"
+import WorkersPage from "./Workers/Workers"
 
 
 function App() {
@@ -32,6 +33,12 @@ function App() {
 
 
           <Route path="/AboutUs" element={<AboutUs />} />
+
+
+
+          <Route path="/services">
+            <Route path=":id" element={<WorkersPage/>}></Route>
+          </Route>
 
          </Routes>
 

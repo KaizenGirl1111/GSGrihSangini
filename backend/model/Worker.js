@@ -9,11 +9,18 @@ const workerSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    age: {
+         type:Number
+    },
+    description: {
+         type:String
+    },
     mobileNo: {
         type: Number,
         unique: true,
         required: true
     },
+
    /*  category: [{
         type: String,
         require: true
@@ -22,6 +29,19 @@ const workerSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+
+
+    category: [{
+        name:{
+            type:String,
+        },
+        expirience:{
+            type:Number
+        },
+        salary : {
+            type:Number
+        }
+    }],
 
     password: {
         type: String,
