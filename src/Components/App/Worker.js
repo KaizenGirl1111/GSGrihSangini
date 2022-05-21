@@ -44,7 +44,6 @@ function Worker() {
           <WorkerCard name={worker.name} age={worker.age} description={worker.description} forte={worker.forte}/>
         )
       } )}
-     {/* <Footer />  */}
     </Fragment>
   );
 }
