@@ -10,6 +10,7 @@ import Workersignup from "./Workersignup";
 import Workerlogin from './Workerlogin';
 import AboutUs from "./AboutUs"
 import WorkersPage from "./Workers/Workers"
+import ForgotPassword from "./forgotPassword";
 
 function App() {
   return (
@@ -26,11 +27,8 @@ function App() {
           <Route path="/services">
             <Route path=":id" element={<WorkersPage/>}></Route>
           </Route>
+          <Route path="/forgot" element={<ForgotPassword/>}></Route>
          </Routes>
-
-
-
-
       </Router>
     </div>
   );
