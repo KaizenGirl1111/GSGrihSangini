@@ -10,6 +10,7 @@ import Workersignup from "./Workersignup";
 import Workerlogin from './Workerlogin';
 import AboutUs from "./AboutUs"
 import WorkersPage from "./Workers/Workers"
+import Worker from "./Worker"
 import ForgotPassword from "./forgotPassword";
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
           <Route path="/Workersignup" element={<Workersignup />} />
           <Route path="/Workerlogin" element={<Workerlogin />} />
           <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/Worker" element={<Worker />} />
           <Route path="/services">
-            <Route path=":id" element={<WorkersPage/>}></Route>
+          <Route path=":id" element={<WorkersPage/>}></Route>
           </Route>
           <Route path="/forgot" element={<ForgotPassword/>}></Route>
          </Routes>

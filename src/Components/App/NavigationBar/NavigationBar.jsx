@@ -37,10 +37,10 @@ function NavigationBar(){
              <Nav.Link className="NavLink" href="/Workerlogin">WorkerLogin</Nav.Link>
              <Nav.Link className="NavLink" href="/contact">Contact Us</Nav.Link>
              <Nav.Link className="NavLink" href="/AboutUs">About Us</Nav.Link>
+             <Nav.Link className="NavLink" href="/Worker">FIND-WORKER</Nav.Link>
            </Nav>
          </Navbar.Collapse>
        </Container>
-      
      </Navbar>
     );
 }
