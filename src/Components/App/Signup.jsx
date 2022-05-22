@@ -28,6 +28,7 @@ function Signup() {
       const token = credential.accessToken;
       const user = result.user;
       alert(user.displayName+" has logged in");
+      alert("You can now, head back to Home page")
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
