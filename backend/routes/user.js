@@ -3,11 +3,13 @@ const express=require('express')
 const User=require('../model/User')
 const router=new express.Router()
 const send = require('../mailer/mailer');
+const jwt = require('jsonwebtoken');
+const verifyToken=require('../middleware/auth');
 
 
 //SIGNUP-ENDPOINT
 router.post('/userSignUp',(req,res)=>{
-    const user=new User(req.body)
+    const user=new User(req.body)   
     user.save()
     .then(()=>{
         const mailOptions ={
@@ -44,8 +46,16 @@ router.post('/userSignUp',(req,res)=>{
 router.post('/userLogin',async (req,res)=>{
     try{
         const user = await User.findByCredentials(req.body.email,req.body.password)
+        const token=jwt.sign({_id:user._id},'hello')
+    //console.log(token)
+        if (user) {
+            user.token=token;
+            await user.save();
+            res.status(201).send({user,token});
+        } 
         res.send(user) 
-    }catch(e){
+    } 
+    catch(e){
         res.status(400).send('Something went wrong!!')
     }
 })

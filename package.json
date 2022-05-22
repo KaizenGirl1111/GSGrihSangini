@@ -21,6 +21,7 @@
     "concurrently": "^7.2.0",
     "cors": "^2.8.5",
     "firebase": "^9.8.1",
+    "jsonwebtoken": "^8.5.1",
     "mdb-react-ui-kit": "^2.4.0",
     "mdbreact": "^5.2.0",
     "react": "^17.0.2",
