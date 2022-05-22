@@ -10,7 +10,8 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import {authentication} from "../../firebase-config";
-import {GoogleAuthProvider,signInWithPopup} from "firebase/auth"
+import {GoogleAuthProvider,signInWithPopup,createUserWithEmailAndPassword} from "firebase/auth"
+
 function Signup() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("");
@@ -36,6 +37,19 @@ function Signup() {
     });
 
     
+}
+
+function handleSignup(){
+  createUserWithEmailAndPassword(authentication, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    alert(user.email+" has logged in!");
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+  });
 }
 
 
@@ -124,8 +138,8 @@ function Signup() {
           />
         </div>
 
-        <button type="submit">Signup</button>
-        <Link to="/signup" className="registerlink">
+        <button id="signUpBtn" onClick={handleSignup} type="submit">Signup</button>
+        <Link to="/Login" className="registerlink">
           Already registered?
         </Link>
         <div className="social">
