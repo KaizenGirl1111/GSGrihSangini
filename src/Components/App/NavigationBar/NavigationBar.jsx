@@ -57,5 +57,4 @@ function NavigationBar() {
     </Navbar>
   );
 }
-
 export default NavigationBar;

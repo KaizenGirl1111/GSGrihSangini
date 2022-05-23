@@ -6,11 +6,28 @@ import Footer from "./Footer/Footer";
 import {MdEmail} from "react-icons/md"
 import {RiLockPasswordFill} from "react-icons/ri"
 import {useNavigate} from "react-router-dom";
+import {authentication} from "../../firebase-config"
+import {signInWithEmailAndPassword} from "firebase/auth"
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let history = useNavigate('/')
+
+
+  function handleLogin(){
+    signInWithEmailAndPassword(authentication, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      alert("Welcome Back ! " +user.email)
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage)
+    });
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     
@@ -59,7 +76,7 @@ function Login() {
           />
         </div>
 
-        <button type="submit">Login</button>
+        <button onClick={handleLogin} type="submit">Login</button>
         <div style={{display:"flex",justifyContent:"space-around"}}>
         <Link to="/forgot" className="registerlink" style={{fontSize:"13px",textDecoration:"none"}}>
           Forgot password?
