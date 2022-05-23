@@ -6,17 +6,7 @@ const send = require('../mailer/mailer');
 const jwt = require('jsonwebtoken');
 const verifyToken=require('../middleware/auth');
 
-
-//SIGNUP-ENDPOINT
-router.post('/userSignUp',(req,res)=>{
-    const user=new User(req.body)   
-    user.save()
-    .then(()=>{
-        const mailOptions ={
-            from:"no-reply@gmail.com", 
-            to:user.email, 
-            subject: "Welcome to GrihSangini", 
-            html:   `<h3>Hi ${user.name},<h3 />
+const welcomeMsg = `<h3>Hello,<h3 />
                     <h4>Welcome to GrihSangini.<h4 />
                     <p>You have successfully created an account on GrihSangini. We’re thrilled to see you here!</p>
                     <p>
@@ -30,15 +20,29 @@ router.post('/userSignUp',(req,res)=>{
                     <p>
                     Thank You !!
                     </p>`
-                }
-                
-                send(mailOptions)
-                return res.status(201).send(user);
-            })
-    .catch(e=>{
-        res.status(400).send('Something went Wrong!!')
-    })
-        
+//SIGNUP-ENDPOINT
+router.post('/userSignUp',async(req,res)=>{
+    try{
+        const user = await new User(req.body);   
+        if(user)
+        {
+            const token=jwt.sign({_id:user._id},'hello')
+            user.token=token;
+            await user.save();
+            res.status(201).send({user,token});
+        }
+
+        const mailOptions ={
+            from:"no-reply@gmail.com", 
+            to:user.email, 
+            subject: "Welcome to GrihSangini", 
+            html: welcomeMsg  
+        }
+        send(mailOptions);
+    }
+    catch(e){
+        res.status(400).send('Something went wrong!!');
+    }   
 })
 
 
