@@ -3,26 +3,30 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
-import {BsFillTelephoneFill} from "react-icons/bs";
-import {RiLockPasswordFill} from "react-icons/ri"
+import {
+  BsFillTelephoneFill,
+  BsFillEyeFill,
+  BsFillEyeSlashFill,
+} from "react-icons/bs";
+import { RiLockPasswordFill } from "react-icons/ri";
+
 
 function Login() {
   const [contactNo, setContactNo] = useState("");
   const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/workerLogin', {
-      method: 'POST',
+    const response = await fetch("http://localhost:5000/workerLogin", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({mobileNo: contactNo, password: password })
+      body: JSON.stringify({ mobileNo: contactNo, password: password }),
     });
     const json = await response.json();
-    console.log(json)
-
+    console.log(json);
   }
 
   return (
@@ -33,7 +37,7 @@ function Login() {
         <h1 className="login_heading">Worker Login</h1>
 
         <div className="input_element">
-        <BsFillTelephoneFill/>
+          <BsFillTelephoneFill />
           <input
             type="number"
             value={contactNo}
@@ -44,13 +48,16 @@ function Login() {
         </div>
 
         <div className="input_element">
-        <RiLockPasswordFill/>
+          <RiLockPasswordFill />
           <input
-            type="password"
+            type={visible ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
+          <div onClick={()=>{setVisible(!visible)}}>
+          {visible ? <BsFillEyeFill fontSize="20px" /> : <BsFillEyeSlashFill fontSize="20px"/>}
+          </div>
         </div>
 
         <button type="submit">Login</button>
@@ -58,7 +65,7 @@ function Login() {
           Create a new account?
         </Link>
       </form>
-      <Footer/>
+      <Footer />
     </Fragment>
   );
 }
