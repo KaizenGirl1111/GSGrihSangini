@@ -3,6 +3,7 @@ import "./AboutUs.css"
 import Footer from "./Footer/Footer";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import logo from './NavigationBar/brand_logo.png';
+import Review from "./Review"
 function AboutUs() {
   return (
     <>
@@ -35,6 +36,9 @@ function AboutUs() {
 		</div>
 	</div>
   </div>
+  
+		
+		<Review />
       <Footer />
     </>
   );

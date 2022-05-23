@@ -1,12 +1,13 @@
 .navbar{
   background-color: #5254D8;
+  margin-bottom: 20px;
 }
 
 .navbar-collapse{
   flex-grow: 0 !important;
 }
 .nav-brand{
-  width:105%;
+  width:100%;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -1,6 +1,6 @@
 import React from "react";
 import "./signup.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { Fragment, useState } from "react";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
@@ -10,8 +10,10 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import {authentication} from "../../firebase-config";
-import {GoogleAuthProvider,signInWithPopup} from "firebase/auth"
+import {GoogleAuthProvider,signInWithPopup,createUserWithEmailAndPassword} from "firebase/auth"
+
 function Signup() {
+  let history = useNavigate('/');
   const [name, setName] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +29,7 @@ function Signup() {
       const token = credential.accessToken;
       const user = result.user;
       alert(user.displayName+" has logged in");
+      alert("You can now, head back to Home page")
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -38,8 +41,19 @@ function Signup() {
     
 }
 
+function handleSignup(){
+  createUserWithEmailAndPassword(authentication, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    alert(user.email+" has logged in!");
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+  });
+}
 
-    
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -51,7 +65,16 @@ function Signup() {
       },
       body: JSON.stringify({ name: name, contactNo: contactNo, address: address, email: email, password: password })
     });
-    const json = await response.json();
+    const res = await response.json();
+    console.log(response)
+    if (res === false) {
+      console.log("Invalid Credentials!!");
+    } else {
+      localStorage.setItem('token', res.token)
+      history('/')
+    }
+
+
 
   }
 
@@ -126,8 +149,8 @@ function Signup() {
           />
         </div>
 
-        <button type="submit">Signup</button>
-        <Link to="/signup" className="registerlink">
+        <button id="signUpBtn" onClick={handleSignup} type="submit">Signup</button>
+        <Link to="/Login" className="registerlink">
           Already registered?
         </Link>
         <div className="social">
