@@ -5,22 +5,30 @@ import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
 import {MdEmail} from "react-icons/md"
 import {RiLockPasswordFill} from "react-icons/ri"
+import {useNavigate} from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  let history = useNavigate('/')
   async function handleSubmit(e) {
     e.preventDefault();
+    
     const response = await fetch('http://localhost:5000/userLogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-
         },
         body: JSON.stringify({ email: email, password: password })
       });
-      const json=await response.json();
+      const res = await response.json();
+      console.log(response)
+      if (res === false) {
+        console.log("Invalid Credentials!!");
+      } else {
+        localStorage.setItem('token', res.token)
+        history('/')
+      }
   }
 
   return (

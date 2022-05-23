@@ -47,13 +47,11 @@ router.post('/userLogin',async (req,res)=>{
     try{
         const user = await User.findByCredentials(req.body.email,req.body.password)
         const token=jwt.sign({_id:user._id},'hello')
-    //console.log(token)
         if (user) {
             user.token=token;
             await user.save();
             res.status(201).send({user,token});
         } 
-        res.send(user) 
     } 
     catch(e){
         res.status(400).send('Something went wrong!!')
