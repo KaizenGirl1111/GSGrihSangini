@@ -1,10 +1,18 @@
-import React from "react";
+import React,{useState} from "react";
 import {Navbar,Container,Nav} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './NavigationBar.css';
 import logo from './brand_logo.png';
+import {authentication} from "../../../firebase-config"
+import {onAuthStateChanged} from "firebase/auth"
 
 function NavigationBar(){
+
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(authentication,(currentUser) => {
+    setUser(currentUser);
+  })
     return (
       <Navbar
       expand="lg"
@@ -38,6 +46,7 @@ function NavigationBar(){
              <Nav.Link className="NavLink" href="/contact">Contact Us</Nav.Link>
              <Nav.Link className="NavLink" href="/AboutUs">About Us</Nav.Link>
              <Nav.Link className="NavLink" href="/Worker">FIND-WORKER</Nav.Link>
+             <Nav.Link className="NavLink" >{user.email}</Nav.Link>
            </Nav>
          </Navbar.Collapse>
        </Container>
