@@ -8,10 +8,16 @@ import Login from "./Login";
 import ContactUS from "./Contactus";
 import Workersignup from "./Workersignup";
 import Workerlogin from './Workerlogin';
+
+import ClientRequest from './ClientRequest/ClientRequest.jsx';
+import {Scrollbars} from "react-custom-scrollbars";
+
+
 import AboutUs from "./AboutUs"
 import WorkersPage from "./Workers/Workers"
 import Worker from "./Worker"
 import ForgotPassword from "./forgotPassword";
+
 
 function App() {
   return (
@@ -24,12 +30,26 @@ function App() {
           <Route path="/Contact" element={<ContactUS />} />
           <Route path="/Workersignup" element={<Workersignup />} />
           <Route path="/Workerlogin" element={<Workerlogin />} />
+
+          <Route path='/Workerlogin/clientrequest' element={<ClientRequest/>}/>
+
+
           <Route path="/AboutUs" element={<AboutUs />} />
+
+
+
+
+
           <Route path="/Worker" element={<Worker />} />
+
           <Route path="/services">
           <Route path=":id" element={<WorkersPage/>}></Route>
           </Route>
+
+
+
           <Route path="/forgot" element={<ForgotPassword/>}></Route>
+
          </Routes>
       </Router>
     </div>

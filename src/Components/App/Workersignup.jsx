@@ -8,16 +8,51 @@ import {RiLockPasswordFill} from "react-icons/ri"
 import {MdEmail} from "react-icons/md"
 import {BsFillPersonFill} from "react-icons/bs";
 import {BsFillTelephoneFill} from "react-icons/bs";
+import axios from "axios";
+import { json } from "body-parser";
+import {useNavigate} from "react-router-dom";
+
 
 
 function Signup() {
+
+ /*  const [data,setData]=useState({
+      name:"",
+      email:"",
+      
+  }) */
+/*   const [name,setName] = React.useState("");
+  const [email, setEmail] = useState("");
+
   const [name,setName] = React.useState("");
+
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
-  const [contactNo, setContactNo] = useState("");
+  const [contactNo, setContactNo] = useState(""); */
 
-  async function handleSubmit(e) {
+const navigate=useNavigate();
+  const[data,setData]=useState({
+    name:"",
+    email:"",
+    mobileNo:"",
+    password:"",
+    cpassword:""
+
+  })
+
+async  function handleSubmit(e) {
     e.preventDefault();
+
+    if(data.password===data.cpassword){
+     
+      /* console.log(name,email,password,contactNo); */
+      console.log(data)
+   await axios.post("http://localhost:5000/workerSignup",data)
+      navigate("/Workerlogin")
+   
+    }
+    //code here
+
     const response = await fetch('http://localhost:5000/workerSignUp', {
       method: 'POST',
       headers: {
@@ -29,6 +64,10 @@ function Signup() {
     const json = await response.json();
     console.log(json)
 
+
+  }
+  function handleChange({currentTarget:input}){
+      setData({...data,[input.name]:input.value});
   }
 
   return (
@@ -36,25 +75,43 @@ function Signup() {
     <NavigationBar />
     <div class="one"></div>
       <form className="login_form" onSubmit={handleSubmit}>
-        <h1 className="login_heading">Worker Signup</h1>
+        <h1 className="login_heading">
+        Worker Signup
+        </h1>
 
         <div className="input_element">
         <BsFillPersonFill/>
           <input
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            value={data.name}
+            onChange={handleChange}
             placeholder="Name"
             autoComplete="on"
           />
         </div>
         
         <div className="input_element">
+
+        <MdEmail/>
+          <input
+            type="email"
+            name="email"
+            value={data.email}
+            onChange={handleChange}
+            placeholder="Email"
+            autoComplete="on"
+          />
+        </div>
+
+        <div className="input_element">
+
         <BsFillTelephoneFill/>
           <input
             type="number"
-            value={contactNo}
-            onChange={(e) => setContactNo(e.target.value)}
+            name="mobileNo"
+            value={data.mobileNo}
+            onChange={handleChange}
             placeholder="Contact Number"
           />
         </div>
@@ -63,8 +120,9 @@ function Signup() {
         <RiLockPasswordFill/>
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            value={data.password}
+            onChange={handleChange}
             placeholder="Password"
           />
         </div>
@@ -73,8 +131,9 @@ function Signup() {
         <RiLockPasswordFill/>
           <input
             type="password"
-            value={cpassword}
-            onChange={(e) => setCpassword(e.target.value)}
+            name="cpassword"
+            value={data.cpassword}
+            onChange={handleChange}
             placeholder="Confirm Password"
           />
         </div>
@@ -89,4 +148,11 @@ function Signup() {
   );
 }
 
+
+
 export default Signup;
+
+
+
+export default Signup;
+
