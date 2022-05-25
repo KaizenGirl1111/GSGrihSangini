@@ -96,7 +96,7 @@ function Signup() {
           <input
             type="password"
             value={cpassword}
-            onChange={(e)=> setCpassword(e.target.value)}
+            onChange={(e)=>setCpassword(e.target.value)}
             placeholder="Confirm Password"
           />
         </div>
