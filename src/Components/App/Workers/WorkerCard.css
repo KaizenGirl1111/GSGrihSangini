@@ -1,5 +1,5 @@
 
-.service-card{
+.worker-card{
      display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,15 +14,15 @@
     margin-top:30px;
 }
 
-.service-img{
+.worker-img{
     width:180px;
     height:180px;
 }
 
-.service-text{
+.worker-text{
     color:black;
 }
-.service-card:hover{
+.worker-card:hover{
     background-color:#B7B9F4;
     cursor: pointer;
 }

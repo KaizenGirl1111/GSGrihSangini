@@ -12,9 +12,9 @@
   padding-top: 150px;
 }
 .container{
-	width: 80%;
+	width: 100%;
 	display: block;
-	margin:auto;
+	margin:0px;
 	padding-top: 0px;
 }
 .content-section{
