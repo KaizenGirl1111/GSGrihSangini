@@ -3,6 +3,7 @@ const express=require('express')
 const User=require('../model/User')
 const router=new express.Router()
 const send = require('../mailer/mailer');
+const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const verifyToken=require('../middleware/auth');
 
@@ -60,6 +61,39 @@ router.post('/userLogin',async (req,res)=>{
     catch(e){
         res.status(400).send('Something went wrong!!')
     }
+})
+
+router.post('/forgotPassword',(req,res)=>{
+        crypto.randomBytes(32,(err,buffer)=>{
+            if(err)
+            {
+                console.log(err);
+            }
+            const resetToken = buffer.toString("hex");
+            User.findOne({email:req.body.email})
+            .then(user=>{
+                if(!user){
+                    return res.status(422).send({error:"User with this email not found"});
+                }
+                user.resetToken = resetToken;
+                user.save().then((result)=>{
+                    console.log(result);
+                    const resetLinkMsg = `<p>Hello,${user.name}!</p>
+                                          <p>You have requested to reset your password</p>
+                                          <p>Please <a href='http://localhost:3000/reset-password/${resetToken}'>Click here </a>to change the password</p>`
+
+                    const resetLinkOptions ={
+                        from:"no-reply@gmail.com", 
+                        to:user.email, 
+                        subject: "Reset-password", 
+                        html: resetLinkMsg
+                    }
+                    send(resetLinkOptions);
+                })
+
+            })
+
+        })
 })
 
 module.exports=router
