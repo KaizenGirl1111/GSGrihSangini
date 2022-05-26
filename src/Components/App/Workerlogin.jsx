@@ -7,37 +7,11 @@ import Footer from "./Footer/Footer";
 import {BsFillTelephoneFill} from "react-icons/bs";
 import {RiLockPasswordFill} from "react-icons/ri";
 import axios from "axios";
+import {BsFillEyeFill,BsFillEyeSlashFill} from "react-icons/bs";
 
 
 function Login() {
-  const[data,setData]=useState({
-    
-    mobileNo:"",
-    password:"",
-   
 
-  })
-
-  const navigate=useNavigate();
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    await axios.post("http://localhost:5000/workerLogin",data)
-    navigate("./clientrequest");
-
-    const response = await fetch('http://localhost:5000/workerLogin', {
-      method: 'POST',
-
-import {
-  BsFillTelephoneFill,
-  BsFillEyeFill,
-  BsFillEyeSlashFill,
-} from "react-icons/bs";
-import { RiLockPasswordFill } from "react-icons/ri";
-
-
-function Login() {
   const [contactNo, setContactNo] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
@@ -53,17 +27,8 @@ function Login() {
       body: JSON.stringify({ mobileNo: contactNo, password: password }),
     });
     const json = await response.json();
-
-    console.log(json)
-
-
-
-    console.log(json);
-
   }
-  function handleChange({currentTarget:input}){
-    setData({...data,[input.name]:input.value});
-}
+
 
   return (
     <Fragment>
@@ -77,8 +42,8 @@ function Login() {
           <input
             type="number"
             name="mobileNo"
-            value={data.mobileNo}
-            onChange={handleChange}
+            value={contactNo}
+            onChange={(e)=>{setContactNo(e.target.value)}}
             placeholder="Contact Number"
             autoComplete="on"
           />
@@ -89,12 +54,8 @@ function Login() {
           <input
 
             name="password"
-            type="password"
-            value={data.password}
-            onChange={handleChange}
-
-            type={visible ? "text" : "password"}
             value={password}
+            type={visible ? "text" : "password"}
             onChange={(e) => setPassword(e.target.value)}
 
             placeholder="Password"
@@ -114,15 +75,4 @@ function Login() {
   );
 }
 
-
-
 export default Login;
-
-
-
-
-export default Login;
-
-
-
-

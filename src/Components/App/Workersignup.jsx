@@ -16,44 +16,15 @@ import {useNavigate} from "react-router-dom";
 
 function Signup() {
 
- /*  const [data,setData]=useState({
-      name:"",
-      email:"",
-      
-  }) */
-/*   const [name,setName] = React.useState("");
-  const [email, setEmail] = useState("");
-
   const [name,setName] = React.useState("");
-
+  const [email, setEmail] = useState("");
+  const [contactNo, setContactNo] = useState(""); 
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
-  const [contactNo, setContactNo] = useState(""); */
 
-const navigate=useNavigate();
-  const[data,setData]=useState({
-    name:"",
-    email:"",
-    mobileNo:"",
-    password:"",
-    cpassword:""
 
-  })
-
-async  function handleSubmit(e) {
-    e.preventDefault();
-
-    if(data.password===data.cpassword){
-     
-      /* console.log(name,email,password,contactNo); */
-      console.log(data)
-   await axios.post("http://localhost:5000/workerSignup",data)
-      navigate("/Workerlogin")
-   
-    }
-    //code here
-
-    const response = await fetch('http://localhost:5000/workerSignUp', {
+  async function handleSubmit() {
+      const response = await fetch('http://localhost:5000/workerSignUp', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -65,9 +36,6 @@ async  function handleSubmit(e) {
     console.log(json)
 
 
-  }
-  function handleChange({currentTarget:input}){
-      setData({...data,[input.name]:input.value});
   }
 
   return (
@@ -83,9 +51,8 @@ async  function handleSubmit(e) {
         <BsFillPersonFill/>
           <input
             type="text"
-            name="name"
-            value={data.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e)=>setName(e.target.value)}
             placeholder="Name"
             autoComplete="on"
           />
@@ -96,9 +63,8 @@ async  function handleSubmit(e) {
         <MdEmail/>
           <input
             type="email"
-            name="email"
-            value={data.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}
             placeholder="Email"
             autoComplete="on"
           />
@@ -109,9 +75,8 @@ async  function handleSubmit(e) {
         <BsFillTelephoneFill/>
           <input
             type="number"
-            name="mobileNo"
-            value={data.mobileNo}
-            onChange={handleChange}
+            value={contactNo}
+            onChange={(e)=>{setContactNo(e.target.value)}}
             placeholder="Contact Number"
           />
         </div>
@@ -120,9 +85,8 @@ async  function handleSubmit(e) {
         <RiLockPasswordFill/>
           <input
             type="password"
-            name="password"
-            value={data.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e)=>{setPassword(e.target.value)}}
             placeholder="Password"
           />
         </div>
@@ -131,9 +95,8 @@ async  function handleSubmit(e) {
         <RiLockPasswordFill/>
           <input
             type="password"
-            name="cpassword"
-            value={data.cpassword}
-            onChange={handleChange}
+            value={cpassword}
+            onChange={(e)=>setCpassword(e.target.value)}
             placeholder="Confirm Password"
           />
         </div>
@@ -148,11 +111,6 @@ async  function handleSubmit(e) {
   );
 }
 
-
-
 export default Signup;
 
-
-
-export default Signup;
 
