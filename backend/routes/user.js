@@ -95,4 +95,15 @@ router.post('/forgotPassword',(req,res)=>{
         })
 })
 
+router.post('/reset-password',async (req,res)=>{
+    try{
+        const token = req.body.token;
+        const user = await User.findOne({resetToken:token,expireToken:{$gt:Date.now()}});
+        user.password = req.body.password;
+        await user.save();
+    }catch(e){
+        console.log(e);
+    } 
+})
+
 module.exports=router
