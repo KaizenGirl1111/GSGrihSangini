@@ -67,7 +67,7 @@ function Login() {
 
         <button type="submit">Login</button>
         <Link to="/Workersignup" className="registerlink">
-          Create a new account?
+          New account?
         </Link>
       </form>
       <Footer />

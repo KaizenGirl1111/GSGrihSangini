@@ -37,7 +37,7 @@ function ForgotPassword() {
           />
         </div>
 
-        <button type="Submit">Submit</button>
+        <button type="Submit"> Submit </button>
       </form>
       <Footer/>
     </Fragment>

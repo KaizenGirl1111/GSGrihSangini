@@ -151,7 +151,7 @@ function handleSignup(){
 
         <button id="signUpBtn" onClick={handleSignup} type="submit">Signup</button>
         <Link to="/Login" className="registerlink">
-          Already registered?
+          registered?
         </Link>
         <div className="social">
           <p>OR</p>

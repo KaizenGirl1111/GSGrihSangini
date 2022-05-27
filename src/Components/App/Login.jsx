@@ -82,7 +82,7 @@ function Login() {
           Forgot password?
         </Link>
         <Link to="/signup" className="registerlink" style={{fontSize:"13px",textDecoration:"none"}}>
-          Create a new account?
+          New account?
         </Link>
         
         </div>

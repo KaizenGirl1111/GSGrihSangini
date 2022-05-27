@@ -103,7 +103,7 @@ function Signup() {
 
         <button type="submit">Signup</button>
         <Link to="/Workerlogin" className="registerlink">
-          Already registered?
+          registered?
         </Link>
       </form>
       <Footer />
