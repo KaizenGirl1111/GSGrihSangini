@@ -8,10 +8,12 @@ import {RiLockPasswordFill} from "react-icons/ri"
 import {useNavigate} from "react-router-dom";
 import {authentication} from "../../firebase-config"
 import {signInWithEmailAndPassword} from "firebase/auth"
+import {BsFillEyeFill,BsFillEyeSlashFill} from "react-icons/bs";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [visible,setVisible] = useState(false);
   let history = useNavigate('/')
 
 
@@ -69,11 +71,14 @@ function Login() {
         <div className="input_element">
         <RiLockPasswordFill/>
           <input
-            type="password"
+            type={visible?"text":"password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
+          <div onClick={()=>setVisible(!visible)}>
+          {visible ? <BsFillEyeFill/> : <BsFillEyeSlashFill/>}
+          </div>
         </div>
 
         <button onClick={handleLogin} type="submit">Login</button>
