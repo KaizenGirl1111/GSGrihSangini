@@ -9,6 +9,13 @@ function ForgotPassword() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    const res = await fetch('http://localhost:5000/forgotPassword',{
+      method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email})
+    })
     //code here
   }
 
@@ -30,7 +37,7 @@ function ForgotPassword() {
           />
         </div>
 
-        <button type="Submit">Submit</button>
+        <button type="Submit"> Submit </button>
       </form>
       <Footer/>
     </Fragment>
