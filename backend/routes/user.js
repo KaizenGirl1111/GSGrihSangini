@@ -76,6 +76,7 @@ router.post('/forgotPassword',(req,res)=>{
                     return res.status(422).send({error:"User with this email not found"});
                 }
                 user.resetToken = resetToken;
+                user.expireToken = Date.now() + 1200000;
                 user.save().then((result)=>{
                     const resetLinkMsg = `<p>Hello,${user.name}!</p>
                                           <p>You have requested to reset your password</p>
