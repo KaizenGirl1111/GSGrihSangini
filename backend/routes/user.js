@@ -76,6 +76,7 @@ router.post('/forgotPassword',(req,res)=>{
                     return res.status(422).send({error:"User with this email not found"});
                 }
                 user.resetToken = resetToken;
+                user.expireToken = Date.now() + 1200000;
                 user.save().then((result)=>{
                     const resetLinkMsg = `<p>Hello,${user.name}!</p>
                                           <p>You have requested to reset your password</p>
@@ -93,6 +94,17 @@ router.post('/forgotPassword',(req,res)=>{
             })
 
         })
+})
+
+router.post('/reset-password',async (req,res)=>{
+    try{
+        const token = req.body.token;
+        const user = await User.findOne({resetToken:token,expireToken:{$gt:Date.now()}});
+        user.password = req.body.password;
+        await user.save();
+    }catch(e){
+        console.log(e);
+    } 
 })
 
 module.exports=router

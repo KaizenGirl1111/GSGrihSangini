@@ -3,10 +3,27 @@ import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
 import "./ResetPassword.css";
 import { RiLockPasswordFill } from "react-icons/ri";
+import {useNavigate,useParams} from "react-router-dom";
+
 function ResetPassword() {
+  let history = useNavigate('/');
+  let params = useParams();
   const [newPassword, setNewPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
-  function handleSubmit() {
+  async function handleSubmit() {
+    if(newPassword===confirmPassword){
+      await fetch('http://localhost:5000/reset-password',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({password: newPassword,token:params.token})
+      })
+      
+    }else{
+      console.log("Password didn't match");
+    }
+    history('/');
     //code here
   }
   return (

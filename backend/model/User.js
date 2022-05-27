@@ -40,7 +40,10 @@ const userSchema = new mongoose.Schema({
     },
     resetToken: {
         type:String,
-    }
+    },
+    expireToken: {
+        type : Date,
+      }
 })
 
 userSchema.pre('save', async function (next) {            
