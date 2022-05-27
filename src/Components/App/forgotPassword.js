@@ -9,6 +9,14 @@ function ForgotPassword() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    const response = await fetch('http://localhost:5000/forgotPassword',{
+      method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email})
+    });
+
     //code here
   }
 
