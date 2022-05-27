@@ -20,6 +20,9 @@ function NavigationBar() {
             <Nav.Link className="NavLink" href="/">
               Home
             </Nav.Link>
+            <Nav.Link className="NavLink" href="/SosPage">
+              Sos
+            </Nav.Link>
             {!localStorage.getItem("token") && (
               <Nav.Link className="NavLink" href="/Signup">
                 SignUp
