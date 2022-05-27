@@ -77,7 +77,6 @@ router.post('/forgotPassword',(req,res)=>{
                 }
                 user.resetToken = resetToken;
                 user.save().then((result)=>{
-                    console.log(result);
                     const resetLinkMsg = `<p>Hello,${user.name}!</p>
                                           <p>You have requested to reset your password</p>
                                           <p>Please <a href='http://localhost:3000/reset-password/${resetToken}'>Click here </a>to change the password</p>`
