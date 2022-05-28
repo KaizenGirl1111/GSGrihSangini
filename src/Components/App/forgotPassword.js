@@ -3,19 +3,29 @@ import "./forgotPassword.css";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
 import {MdEmail} from "react-icons/md"
+import {ToastContainer,toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
-
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch('http://localhost:5000/forgotPassword',{
-      method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email})
-    })
+    try{
+      const res = await fetch('http://localhost:5000/forgotPassword',{
+        method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: email})
+      });
+      console.log(res);
+      toast.success("Please check your email");
+    }catch(e){
+      console.log(e);
+      toast.error(e.message);
+    }
+    
     //code here
   }
 

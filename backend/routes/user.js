@@ -39,7 +39,7 @@ router.post('/userSignUp',async(req,res)=>{
             subject: "Welcome to GrihSangini", 
             html: welcomeMsg  
         }
-        send(mailOptions);
+        await send(mailOptions);
     }
     catch(e){
         res.status(400).send('Something went wrong!!');
@@ -63,38 +63,44 @@ router.post('/userLogin',async (req,res)=>{
     }
 })
 
-router.post('/forgotPassword',(req,res)=>{
-        crypto.randomBytes(32,(err,buffer)=>{
-            if(err)
-            {
-                console.log(err);
-            }
-            const resetToken = buffer.toString("hex");
-            User.findOne({email:req.body.email})
-            .then(user=>{
-                if(!user){
-                    return res.status(422).send({error:"User with this email not found"});
+async function getKey() {
+    
+
+}
+
+router.post('/forgotPassword',async (req,res)=>{
+    try{
+        const buffer = await new Promise((resolve, reject) => {
+            crypto.randomBytes(32, function(ex, buffer) {
+                if (ex) {
+                    reject({Message:"Error generating token"});
                 }
-                user.resetToken = resetToken;
-                user.expireToken = Date.now() + 1200000;
-                user.save().then((result)=>{
-                    const resetLinkMsg = `<p>Hello,${user.name}!</p>
-                                          <p>You have requested to reset your password</p>
-                                          <p>Please <a href='http://localhost:3000/reset-password/${resetToken}'>Click here </a>to change the password</p>`
-
-                    const resetLinkOptions ={
-                        from:"no-reply@gmail.com", 
-                        to:user.email, 
-                        subject: "Reset-password", 
-                        html: resetLinkMsg
-                    }
-                    send(resetLinkOptions);
-                })
-
-            })
-
+                resolve(buffer);
+            });
         })
-})
+        const resetToken = buffer.toString("hex");
+        const user = await User.findOne({email:req.body.email})
+        user.resetToken = resetToken;
+        user.expireToken = Date.now() + 1200000;
+        await user.save();
+
+        const resetLinkMsg = `<p>Hello,${user.name}!</p>
+                              <p>You have requested to reset your password</p>
+                              <p>Please <a href='http://localhost:3000/reset-password/${resetToken}'>Click here </a>to change the password</p>`
+        const resetLinkOptions = {
+            from:"no-reply@gmail.com", 
+            to:user.email, 
+            subject: "Reset-password", 
+            html: resetLinkMsg
+        }
+        await send(resetLinkOptions);
+        res.status(200).send("Please check your email")
+
+    }catch(e){
+        throw e;
+    }
+});    
+    
 
 router.post('/reset-password',async (req,res)=>{
     try{

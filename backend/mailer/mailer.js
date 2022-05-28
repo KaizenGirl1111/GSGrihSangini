@@ -8,14 +8,17 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-function send(mailOptions)
+async function send(mailOptions)
 {
-    transporter.sendMail(mailOptions,function(error,info){
-        if(error){
-            console.log(error);
-        }else{
-            console.log("mail sent ");
-        }
+    return new Promise(function(resolve, reject){
+        transporter.sendMail(mailOptions,function(error,info){
+            if(error){
+                reject("Couldn't send mail");
+            }else{
+                resolve();
+            }
+        })
+    
     })
 }
 
