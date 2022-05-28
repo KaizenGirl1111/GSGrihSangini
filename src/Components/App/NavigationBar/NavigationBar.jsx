@@ -51,6 +51,7 @@ function NavigationBar() {
                 FIND-WORKER
               </Nav.Link>
             )}
+            <button type="button" className="btn btn-light">Logout</button>
           </Nav>
         </Navbar.Collapse>
       </Container>
