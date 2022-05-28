@@ -5,7 +5,6 @@ import { AiFillHome } from 'react-icons/ai';
 import { BsFillPersonFill, BsFillTelephoneFill } from 'react-icons/bs';
 import { MdEmail,MdWork } from 'react-icons/md';
 import "./SosPage.css";
-import emergency from "../../assets/images/images.jpeg"
 
 function SosPage(){
     const [name,setName] = React.useState("");
@@ -22,12 +21,13 @@ function SosPage(){
     return(
         <>
 			<NavigationBar />
-            <div className="main-body">
-            <div className="Sos_image">
-                <img src={emergency} alt="image" />
-            </div>
+			<div className="sos_data">
+				<h1 style={{color:"#192294",fontFamily:"cursive"}}>GS Sos</h1>
+				<p style={{fontSize:"20px",fontFamily:"monospace"}}>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+			</div>
 			<form className='Sos_form' onSubmit={handleSubmit}>
-				<h1 className='Sos_heading'>‼ GS Sos ‼</h1>
+				{/* <h1 className='Sos_heading'>‼ GS Sos ‼</h1> */}
 
 				<div className='Sos_input_element'>
 					<BsFillPersonFill />
@@ -95,7 +95,6 @@ function SosPage(){
 				</button>
 				
 			</form>
-            </div>
 			<Footer />
 		</>
     )
