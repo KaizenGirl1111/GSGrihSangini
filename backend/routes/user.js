@@ -39,7 +39,7 @@ router.post('/userSignUp',async(req,res)=>{
             subject: "Welcome to GrihSangini", 
             html: welcomeMsg  
         }
-        send(mailOptions);
+        await send(mailOptions);
     }
     catch(e){
         res.status(400).send('Something went wrong!!');
@@ -94,6 +94,7 @@ router.post('/forgotPassword',async (req,res)=>{
             html: resetLinkMsg
         }
         await send(resetLinkOptions);
+        res.status(200).send("Please check your email")
 
     }catch(e){
         throw e;

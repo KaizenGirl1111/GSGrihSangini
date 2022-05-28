@@ -18,8 +18,9 @@ function ForgotPassword() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ email: email})
-      })
-      toast.error(res);
+      });
+      console.log(res);
+      toast.success("Please check your email");
     }catch(e){
       console.log(e);
       toast.error(e.message);
