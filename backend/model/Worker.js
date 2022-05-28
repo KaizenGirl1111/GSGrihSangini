@@ -29,7 +29,9 @@ const workerSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-
+    token:{
+        type:String
+    },
 
     category: [{
         name:{
