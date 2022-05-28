@@ -32,11 +32,12 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^9.0.1",
     "sass": "^1.49.9",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"cd backend && node index.js\"",
+    "start": "concurrently \"react-scripts start\" \"cd backend && nodemon index.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
