@@ -12,6 +12,7 @@ import {BsFillEyeFill,BsFillEyeSlashFill} from "react-icons/bs";
 
 function Login() {
 
+  let history=useNavigate('/')
   const [contactNo, setContactNo] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
@@ -27,6 +28,13 @@ function Login() {
       body: JSON.stringify({ mobileNo: contactNo, password: password }),
     });
     const json = await response.json();
+    console.log(json)
+    if (json === false) {
+			console.log('Invalid Credentials!!');
+		} else {
+			localStorage.setItem('token', json.token);
+			history('/');
+		}
   }
 
 

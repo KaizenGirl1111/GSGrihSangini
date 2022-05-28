@@ -16,6 +16,8 @@ import {useNavigate} from "react-router-dom";
 
 function Signup() {
 
+  let history=useNavigate('/')
+
   const [name,setName] = React.useState("");
   const [email, setEmail] = useState("");
   const [contactNo, setContactNo] = useState(""); 
@@ -30,12 +32,17 @@ function Signup() {
         'Content-Type': 'application/json',
 
       },
-      body: JSON.stringify({ name: name, mobileNo: contactNo, password: password })
+      body: JSON.stringify({ name: name, mobileNo: contactNo, password: password ,email:email})
     });
     const json = await response.json();
     console.log(json)
-
-
+    if (json === false) {
+			console.log('Invalid Credentials!!');
+		} else {
+			localStorage.setItem('token', json.token);
+			history('/');
+		}
+  
   }
 
   return (

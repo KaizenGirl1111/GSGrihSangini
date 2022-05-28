@@ -1,10 +1,15 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./NavigationBar.css";
 import logo from "./brand_logo.png";
 
 function NavigationBar() {
+  let history=useNavigate('/')
+  const handleClick=()=>{
+    localStorage.removeItem('token',null)
+    history('/')
+  }
   return (
     <Navbar expand="lg" fixed="top" variant="dark">
       <Container>
@@ -51,6 +56,8 @@ function NavigationBar() {
                 FIND-WORKER
               </Nav.Link>
             )}
+            {localStorage.getItem('token')?
+            <button type="button" className="btn btn-light" onClick={()=>{handleClick()}}>Logout</button>:<></>}
           </Nav>
         </Navbar.Collapse>
       </Container>
