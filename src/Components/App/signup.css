@@ -1,5 +1,6 @@
 .login_heading {
 	margin: 1rem auto;
+	text-align: center;
 }
 .one {
 	padding-bottom: 200px;
@@ -36,10 +37,12 @@
 	background-color: white;
 }
 
-.login_form > button,
+#signUpBtn,
 .social > button {
+	width: 100%;
 	padding: 12px 0px;
 	margin-top: 10px;
+	margin-bottom: 10px;
 	border: none;
 	border-radius: 4px;
 	color: white;
@@ -86,5 +89,6 @@
 
 .registerlink {
 	padding: 10px;
-	text-align: center;
+	display: flex;
+	justify-content: center;
 }

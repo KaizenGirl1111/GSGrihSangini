@@ -32,8 +32,12 @@ function Signup() {
 					GoogleAuthProvider.credentialFromResult(result);
 				const token = credential.accessToken;
 				const user = result.user;
-				alert(user.displayName + ' has logged in');
-				alert('You can now, head back to Home page');
+				console.log(user.displayName);
+				alert(
+					`${user.displayName}  has logged in ` +
+						'.You can now head back to the home page',
+				);
+				localStorage.setItem('token', token);
 			})
 			.catch((error) => {
 				const errorCode = error.code;
@@ -55,6 +59,7 @@ function Signup() {
 				const errorCode = error.code;
 				const errorMessage = error.message;
 				alert(errorMessage);
+				alert(errorCode);
 			});
 	}
 
@@ -87,84 +92,86 @@ function Signup() {
 		<Fragment>
 			<NavigationBar />
 			<div class='one'></div>
-			<form className='login_form' onSubmit={handleSubmit}>
-				<h1 className='login_heading'>Signup</h1>
+			<div className='login_form'>
+				<form onSubmit={handleSignup}>
+					<h1 className='login_heading'>Signup</h1>
 
-				<div className='input_element'>
-					<BsFillPersonFill />
-					<input
-						type='name'
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-						placeholder='name'
-						autoComplete='on'
-					/>
-				</div>
+					<div className='input_element'>
+						<BsFillPersonFill />
+						<input
+							type='name'
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+							placeholder='name'
+							autoComplete='on'
+						/>
+					</div>
 
-				<div className='input_element'>
-					<MdEmail />
-					<input
-						type='email'
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						placeholder='Email'
-						autoComplete='on'
-					/>
-				</div>
+					<div className='input_element'>
+						<MdEmail />
+						<input
+							type='email'
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							placeholder='Email'
+							autoComplete='on'
+						/>
+					</div>
 
-				<div className='input_element'>
-					<BsFillTelephoneFill />
-					<input
-						type='number'
-						value={contactNo}
-						onChange={(e) => setContactNo(e.target.value)}
-						placeholder='Contact Number'
-					/>
-				</div>
+					<div className='input_element'>
+						<BsFillTelephoneFill />
+						<input
+							type='number'
+							value={contactNo}
+							onChange={(e) => setContactNo(e.target.value)}
+							placeholder='Contact Number'
+						/>
+					</div>
 
-				<div className='input_element'>
-					<AiFillHome />
-					<input
-						type='text'
-						value={address}
-						onChange={(e) => setAddress(e.target.value)}
-						placeholder='Address'
-					/>
-				</div>
+					<div className='input_element'>
+						<AiFillHome />
+						<input
+							type='text'
+							value={address}
+							onChange={(e) => setAddress(e.target.value)}
+							placeholder='Address'
+						/>
+					</div>
 
-				<div className='input_element'>
-					<RiLockPasswordFill />
-					<input
-						type='password'
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						placeholder='Password'
-					/>
-				</div>
+					<div className='input_element'>
+						<RiLockPasswordFill />
+						<input
+							type='password'
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							placeholder='Password'
+						/>
+					</div>
 
-				<div className='input_element'>
-					<RiLockPasswordFill />
-					<input
-						type='password'
-						value={cpassword}
-						onChange={(e) => setCpassword(e.target.value)}
-						placeholder='Confirm Password'
-					/>
-				</div>
+					<div className='input_element'>
+						<RiLockPasswordFill />
+						<input
+							type='password'
+							value={cpassword}
+							onChange={(e) => setCpassword(e.target.value)}
+							placeholder='Confirm Password'
+						/>
+					</div>
 
-				<button id='signUpBtn' onClick={handleSignup} type='submit'>
-					Signup
-				</button>
-				<Link to='/Login' className='registerlink'>
-					Already registered?
-				</Link>
+					<button id='signUpBtn' onClick={handleSubmit} type='submit'>
+						Signup
+					</button>
+					<Link to='/Login' className='registerlink'>
+						Already registered?
+					</Link>
+				</form>
 				<div className='social'>
 					<p>OR</p>
 					<button className='google' onClick={handleGoogleAuth}>
 						<FcGoogle size={'2em'} /> Sign up with Google
 					</button>
 				</div>
-			</form>
+			</div>
 			<Footer />
 		</Fragment>
 	);
