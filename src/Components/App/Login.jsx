@@ -1,101 +1,100 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
 import "./login.css";
+import { Link } from "react-router-dom";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
-import {
-  MDBInput,
-  MDBCol,
-  MDBRow,
-  MDBCheckbox,
-  MDBBtn,
-  MDBIcon,
-} from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
+import {MdEmail} from "react-icons/md"
+import {RiLockPasswordFill} from "react-icons/ri"
+import {useNavigate} from "react-router-dom";
+import {authentication} from "../../firebase-config"
+import {signInWithEmailAndPassword} from "firebase/auth"
+import {BsFillEyeFill,BsFillEyeSlashFill} from "react-icons/bs";
 
-function Signup() {
-  const [visible, setVisible] = React.useState(false);
-  function handleChange() {
-    setVisible(!visible);
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [visible,setVisible] = useState(false);
+  let history = useNavigate('/')
+
+
+  function handleLogin(){
+    signInWithEmailAndPassword(authentication, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      alert("Welcome Back ! " +user.email)
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage)
+    });
   }
-  return (
-    <>
-      <NavigationBar />
-      <form
-        style={{
-          width: "22rem",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "auto",
-          paddingTop: "100px",
-        }}
-      >
-        <div class="card">
-          <div class="block">
-            <h1 class="heading text-center mb-4">
-              <b>Login</b>
-            </h1>
-          </div>
 
-          <MDBInput
-            className="mb-4"
+  async function handleSubmit(e) {
+    e.preventDefault();
+    
+    const response = await fetch('http://localhost:5000/userLogin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email, password: password })
+      });
+      const res = await response.json();
+      console.log(response)
+      if (res === false) {
+        console.log("Invalid Credentials!!");
+      } else {
+        localStorage.setItem('token', res.token)
+        history('/')
+      }
+  }
+
+  return (
+    <Fragment>
+      <NavigationBar />
+      <div class="one"></div>
+      <form className="login_form" onSubmit={handleSubmit}>
+        <h1 className="login_heading">Login</h1>
+
+        <div className="input_element">
+        <MdEmail/>
+          <input
             type="email"
-            id="form2Example1"
-            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            autoComplete="on"
           />
-          <MDBInput
-            className="mb-4"
-            type={visible ? "text" : "password"}
-            id="form2Example2"
-            label="Password"
-          />
-          <div class="rem">
-            <MDBRow className="mb-4">
-              <MDBCol className="d-flex justify-content-center">
-                <MDBCheckbox
-                  id="form2Example3"
-                  label="Show Password"
-                  onChange={handleChange}
-                />
-                <MDBCheckbox
-                  id="form2Example3"
-                  label="Remember me"
-                  defaultChecked
-                />
-              </MDBCol>
-            </MDBRow>
-          </div>
-          <MDBBtn type="submit" className="mb-4" block color="white">
-            Login
-          </MDBBtn>
         </div>
 
-        <div className="text-center">
-          <div className="row my-4 d-flex justify-content-center">
-            <div>
-              <MDBBtn
-                type="button"
-                color="white"
-                rounded
-                className="mr-md-4 z-depth-1a"
-              >
-                <MDBIcon fab icon="facebook-f" className="blue-text " />
-              </MDBBtn>
-
-              <MDBBtn
-                type="button"
-                color="#000278 #192294 #5254D8 #B7B9F4"
-                rounded
-                className="mr-md-4 z-depth-1a"
-              >
-                <MDBIcon fab icon="google-plus-g" className="blue-text" />
-              </MDBBtn>
-            </div>
+        <div className="input_element">
+        <RiLockPasswordFill/>
+          <input
+            type={visible?"text":"password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+          <div onClick={()=>setVisible(!visible)}>
+          {visible ? <BsFillEyeFill/> : <BsFillEyeSlashFill/>}
           </div>
+        </div>
+
+        <button onClick={handleLogin} type="submit">Login</button>
+        <div style={{display:"flex",justifyContent:"space-around"}}>
+        <Link to="/forgot" className="registerlink" style={{fontSize:"13px",textDecoration:"none"}}>
+          Forgot password?
+        </Link>
+        <Link to="/signup" className="registerlink" style={{fontSize:"13px",textDecoration:"none"}}>
+          New account?
+        </Link>
+        
         </div>
       </form>
-      <Footer />
-    </>
+      <Footer/>
+    </Fragment>
   );
 }
 
-export default Signup;
+export default Login;

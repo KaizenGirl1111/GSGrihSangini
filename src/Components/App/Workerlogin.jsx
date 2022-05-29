@@ -1,67 +1,86 @@
-import React from "react";
-import "./workerlogin.css";
+import React, { Fragment, useState } from "react";
+import "./login.css";
+import { Link ,useNavigate} from "react-router-dom";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Footer from "./Footer/Footer";
-import {
-  MDBInput,
-  MDBCol,
-  MDBRow,
-  MDBCheckbox,
-  MDBBtn,
-} from "mdb-react-ui-kit";
 
-function Workerlogin() {
-  const [visible, setVisible] = React.useState(false);
+import {BsFillTelephoneFill} from "react-icons/bs";
+import {RiLockPasswordFill} from "react-icons/ri";
+import axios from "axios";
+import {BsFillEyeFill,BsFillEyeSlashFill} from "react-icons/bs";
+
+
+function Login() {
+
+  let history=useNavigate('/')
+  const [contactNo, setContactNo] = useState("");
+  const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const response = await fetch("http://localhost:5000/workerLogin", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ mobileNo: contactNo, password: password }),
+    });
+    const json = await response.json();
+    console.log(json)
+    if (json === false) {
+			console.log('Invalid Credentials!!');
+		} else {
+			localStorage.setItem('token', json.token);
+			history('/');
+		}
+  }
+
+
   return (
-    <>
+    <Fragment>
       <NavigationBar />
-      <form
-        style={{
-          width: "22rem",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "auto",
-          paddingTop: "100px",
-        }}
-      >
-        <div class="card">
-          <div class="block">
-            <h1 class="heading text-center mb-4">
-              <b>Login-Worker</b>
-            </h1>
-          </div>
-          <div className="abc"></div>
-          <MDBInput
-            className="mb-4"
-            type={visible ? "text" : "password"}
-            id="form2Example2"
-            label="Password"
-          />
-          <div class="rem">
-            <MDBRow className="mb-4">
-              <MDBCol className="d-flex justify-content-center">
-                <MDBCheckbox
-                  id="form2Example3"
-                  label="Show password"
-                  onChange={() => setVisible(!visible)}
-                />
-                <MDBCheckbox
-                  id="form2Example3"
-                  label="Remember me"
-                  defaultChecked
-                />
-              </MDBCol>
-            </MDBRow>
-          </div>
-          <MDBBtn type="submit" className="mb-4" block color="white">
-            Login
-          </MDBBtn>
-        </div>
-      </form>
+      <div class="one"></div>
+      <form className="login_form" onSubmit={handleSubmit}>
+        <h1 className="login_heading">Worker Login</h1>
 
+        <div className="input_element">
+          <BsFillTelephoneFill />
+          <input
+            type="number"
+            name="mobileNo"
+            value={contactNo}
+            onChange={(e)=>{setContactNo(e.target.value)}}
+            placeholder="Contact Number"
+            autoComplete="on"
+          />
+        </div>
+
+        <div className="input_element">
+          <RiLockPasswordFill />
+          <input
+
+            name="password"
+            value={password}
+            type={visible ? "text" : "password"}
+            onChange={(e) => setPassword(e.target.value)}
+
+            placeholder="Password"
+          />
+          <div onClick={()=>{setVisible(!visible)}}>
+          {visible ? <BsFillEyeFill fontSize="20px" /> : <BsFillEyeSlashFill fontSize="20px"/>}
+          </div>
+        </div>
+
+        <button type="submit">Login</button>
+        <Link to="/Workersignup" className="registerlink">
+          New account?
+        </Link>
+      </form>
       <Footer />
-    </>
+    </Fragment>
   );
 }
 
-export default Workerlogin;
+export default Login;

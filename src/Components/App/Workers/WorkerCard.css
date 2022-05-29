@@ -1,0 +1,28 @@
+
+.worker-card{
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    width:1200px;
+    height:100%;
+    border-radius: 50px;
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+    padding:20px;
+    border: 5px solid #5254D8;
+    margin-top:30px;
+}
+
+.worker-img{
+    width:180px;
+    height:180px;
+}
+
+.worker-text{
+    color:black;
+}
+.worker-card:hover{
+    background-color:#B7B9F4;
+    cursor: pointer;
+}

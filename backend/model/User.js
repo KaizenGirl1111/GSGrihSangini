@@ -8,7 +8,12 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-
+    contactNo: {
+        type: Number
+    },
+    address: {
+        type: String
+    },
     // This also validates whether the user has entered valid and unique email
     email: {
         type: String,
@@ -32,7 +37,16 @@ const userSchema = new mongoose.Schema({
                 throw new Error('Password cannot contain "password"')
             }
         }
-    }
+    },
+    token: {
+         type:String
+    },
+    resetToken: {
+        type:String,
+    },
+    expireToken: {
+        type : Date,
+      }
 })
 
 userSchema.pre('save', async function (next) {            

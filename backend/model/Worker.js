@@ -2,21 +2,49 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 
+
 const workerSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         trim: true
     },
+    age: {
+         type:Number
+    },
+    description: {
+         type:String
+    },
     mobileNo: {
         type: Number,
         unique: true,
         required: true
     },
-    category: [{
+
+   /*  category: [{
         type: String,
         require: true
+    }], */
+    email:{
+        type:String,
+        required:true,
+    },
+    token:{
+        type:String
+    },
+
+    category: [{
+        name:{
+            type:String,
+        },
+        expirience:{
+            type:Number
+        },
+        salary : {
+            type:Number
+        }
     }],
+
     password: {
         type: String,
         required: true,

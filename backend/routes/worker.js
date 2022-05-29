@@ -3,13 +3,16 @@ const express=require('express')
 const Worker=require('../model/Worker')
 const router=new express.Router()
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken');
 
 //SIGNUP-ENDPOINT
 router.post('/workerSignUp',async (req,res)=>{
     const worker=new Worker(req.body)
     try{
+        const token=jwt.sign({_id:worker._id},'hello')
+        worker.token=worker.save()
         await worker.save()
-        res.status(201).send(worker)
+        res.status(201).send({worker,token})
     }catch(e){
         res.status(400).send('Something went Wrong!!')
     }
@@ -27,7 +30,9 @@ router.post('/workerLogin',async (req,res)=>{
         if (!isMatch) {
             throw new Error('unable to login')
         }
-        res.send(worker) 
+        const token=jwt.sign({_id:worker._id},'hello')
+        worker.token=worker.save()
+        res.send({worker,token}) 
     }catch(e){
         res.status(400).send('Something went wrong!!')
     }
