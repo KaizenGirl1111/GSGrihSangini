@@ -1,5 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React, { Fragment, useState } from 'react';
+import FacebookLogin from 'react-facebook-login';
 import { BsFillPersonFill, BsFillTelephoneFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { MdEmail } from 'react-icons/md';
@@ -17,6 +18,25 @@ function Signup() {
 	const [contactNo, setContactNo] = useState('');
 	const [password, setPassword] = useState('');
 	const [cpassword, setCpassword] = useState('');
+
+	const responseFacebook = (response) => {
+		if (response.status !== 'unknown') {
+			const name = response.name;
+			const token = response.accessToken;
+			localStorage.setItem('token', token);
+			alert(
+				`${name}  has logged in ` +
+					'.You can now head back to the home page',
+			);
+		} else {
+			console.log('error');
+		}
+		console.log(response);
+	};
+
+	const componentClicked = (data) => {
+		console.log('data', data);
+	};
 
 	async function handleSubmit() {
 		const response = await fetch('http://localhost:5000/workerSignUp', {
@@ -145,11 +165,23 @@ function Signup() {
 						registered?
 					</Link>
 				</form>
-				<div className='social'>
-					<p>OR</p>
-					<button className='google' onClick={handleGoogleAuth}>
-						<FcGoogle size={'2em'} /> Sign up with Google
-					</button>
+				<p style={{ textAlign: 'center' }}>OR</p>
+				<div className='auth'>
+					<div className='social'>
+						<button className='google' onClick={handleGoogleAuth}>
+							<FcGoogle size={'2em'} /> Sign up with Google
+						</button>
+					</div>
+					<div>
+						<FacebookLogin
+							appId={process.env.REACT_APP_FacebookAppId}
+							autoLoad={false}
+							fields='name,email,picture'
+							onClick={componentClicked}
+							callback={responseFacebook}
+							cssClass='facebookbtn'
+						/>
+					</div>
 				</div>
 			</div>
 			<Footer />
