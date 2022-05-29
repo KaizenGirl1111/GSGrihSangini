@@ -56,6 +56,8 @@ const workerSchema = new mongoose.Schema({
             }
         }
     }
+},{
+    timestamps:true    //Note this is the second parameter passed to the schema
 })
 
 workerSchema.pre('save', async function (next) {
