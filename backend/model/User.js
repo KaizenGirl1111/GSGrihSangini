@@ -47,6 +47,8 @@ const userSchema = new mongoose.Schema({
     expireToken: {
         type : Date,
       }
+},{
+    timestamps:true    //Note this is the second parameter passed to the schema
 })
 
 userSchema.pre('save', async function (next) {            

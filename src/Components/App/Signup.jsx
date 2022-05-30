@@ -95,11 +95,11 @@ function Signup() {
 				contactNo: contactNo,
 				address: address,
 				email: email,
-				password: password,
+				password: password
 			}),
 		});
 		const res = await response.json();
-		console.log(response);
+		console.log(res);
 		if (res === false) {
 			console.log('Invalid Credentials!!');
 		} else {

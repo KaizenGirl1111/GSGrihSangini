@@ -24,7 +24,7 @@ const welcomeMsg = `<h3>Hello,<h3 />
 //SIGNUP-ENDPOINT
 router.post('/userSignUp',async(req,res)=>{
     try{
-        const user = await new User(req.body);   
+        const user = new User(req.body);   
         if(user)
         {
             const token=jwt.sign({_id:user._id},'hello')
