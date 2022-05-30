@@ -4,6 +4,7 @@ import {
 	signInWithPopup,
 } from 'firebase/auth';
 import React, { Fragment, useState } from 'react';
+import FacebookLogin from 'react-facebook-login';
 import { AiFillHome } from 'react-icons/ai';
 import { BsFillPersonFill, BsFillTelephoneFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
@@ -23,6 +24,25 @@ function Signup() {
 	const [cpassword, setCpassword] = useState('');
 	const [contactNo, setContactNo] = useState('');
 	const [address, setAddress] = useState('');
+
+	const responseFacebook = (response) => {
+		if (response.status !== 'unknown') {
+			const name = response.name;
+			const token = response.accessToken;
+			localStorage.setItem('token', token);
+			alert(
+				`${name}  has logged in ` +
+					'.You can now head back to the home page',
+			);
+		} else {
+			console.log('error');
+		}
+		console.log(response);
+	};
+
+	const componentClicked = (data) => {
+		console.log('data', data);
+	};
 
 	function handleGoogleAuth() {
 		const provider = new GoogleAuthProvider();
@@ -165,11 +185,23 @@ function Signup() {
 						Already registered?
 					</Link>
 				</form>
-				<div className='social'>
-					<p>OR</p>
-					<button className='google' onClick={handleGoogleAuth}>
-						<FcGoogle size={'2em'} /> Sign up with Google
-					</button>
+				<p style={{ textAlign: 'center' }}>OR</p>
+				<div className='auth'>
+					<div className='social'>
+						<button className='google' onClick={handleGoogleAuth}>
+							<FcGoogle size={'2em'} /> Sign up with Google
+						</button>
+					</div>
+					<div>
+						<FacebookLogin
+							appId={process.env.REACT_APP_FacebookAppId}
+							autoLoad={false}
+							fields='name,email,picture'
+							onClick={componentClicked}
+							callback={responseFacebook}
+							cssClass='facebookbtn'
+						/>
+					</div>
 				</div>
 			</div>
 			<Footer />
