@@ -1,0 +1,12 @@
+
+.x-close{
+    display: flex;
+    position: relative;
+    margin-bottom: 17%;
+    margin-left: 96%;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
