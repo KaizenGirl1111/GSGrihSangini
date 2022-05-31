@@ -59,7 +59,7 @@ router.post('/userLogin',async (req,res)=>{
         } 
     } 
     catch(e){
-        res.status(400).send('Something went wrong!!')
+        res.status(400).send('false')
     }
 })
 
