@@ -20,6 +20,7 @@ import WorkersPage from "./Workers/Workers";
 import Worker from "./Worker";
 import ForgotPassword from "./forgotPassword";
 import ResetPassword from "./ResetPassword";
+import PhoneVerification from "./PhoneVerification";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/Workersignup" element={<Workersignup />} />
           <Route path="/Workerlogin" element={<Workerlogin />} />
           <Route path="/SosPage" element={<SosPage />} />
+          <Route path="/phoneVerification" element ={<PhoneVerification/>}/>
           <Route
             path="/Workerlogin/clientrequest"
             element={<ClientRequest />}
