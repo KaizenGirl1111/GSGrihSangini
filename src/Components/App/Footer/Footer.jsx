@@ -15,6 +15,7 @@ function Footer(){
             <p>An initiative to reskill blue-collar workers and connect them to service buyers.</p>
           </div>
           <div className="socials">
+          <a href="https://github.com/KaizenGirl1111/GSGrihSangini" className="social-icon"><FontAwesomeIcon icon={['fab', 'github']} size="2x" /></a>
             <a href="https://www.linkedin.com/company/grihsangini" className="social-icon"><FontAwesomeIcon icon={['fab', 'linkedin']} size="2x" /></a>
             <a href="https://www.instagram.com/invites/contact/?i=y88b1dto0gyr&utm_content=ltxli8v" className="social-icon"><FontAwesomeIcon icon={['fab', 'facebook']} size="2x" /></a>
           </div>

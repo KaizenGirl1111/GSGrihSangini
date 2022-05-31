@@ -7,14 +7,15 @@ const jwt = require('jsonwebtoken');
 
 //SIGNUP-ENDPOINT
 router.post('/workerSignUp',async (req,res)=>{
-    const worker=new Worker(req.body)
+    const worker=await new Worker(req.body)
     try{
         const token=jwt.sign({_id:worker._id},'hello')
-        worker.token=worker.save()
+        worker.token=token;
         await worker.save()
+        console.log(worker);
         res.status(201).send({worker,token})
     }catch(e){
-        res.status(400).send('Something went Wrong!!')
+        res.status(400).send('false')
     }
 })
 

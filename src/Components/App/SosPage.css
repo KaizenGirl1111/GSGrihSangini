@@ -64,12 +64,6 @@
 	transform: scale(1.02);
 }
 
-.social {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
 .social .google {
 	width: 100%;
 	text-align: center;
