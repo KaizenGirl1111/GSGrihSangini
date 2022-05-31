@@ -6,7 +6,7 @@ import Footer from "./Footer/Footer";
 
 import {BsFillTelephoneFill} from "react-icons/bs";
 import {RiLockPasswordFill} from "react-icons/ri";
-import axios from "axios";
+
 import {BsFillEyeFill,BsFillEyeSlashFill} from "react-icons/bs";
 
 
