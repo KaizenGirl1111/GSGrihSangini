@@ -41,7 +41,7 @@
 .social > button {
 	width: 100%;
 	padding: 12px 0px;
-	margin-top: 10px;
+
 	margin-bottom: 10px;
 	border: none;
 	border-radius: 4px;
@@ -56,20 +56,27 @@
 .social > button:hover {
 	transform: scale(1.02);
 }
-
-.social {
+.auth {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.social > button {
+	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 }
 .social .google {
-	width: 100%;
+	width: 50%;
 	text-align: center;
 	background: #fff;
 	box-shadow: 1px 1px 1px rgb(0 0 0 / 5%), 1px 3px 6px rgb(0 0 0 / 5%);
 	color: #5254d8;
 	margin-top: 0;
+	padding: 10px;
+	font-size: 13px;
 }
 
 .close {
@@ -79,7 +86,16 @@
 	font-size: medium;
 	cursor: pointer;
 }
-
+.facebookbtn {
+	background: #3b5998;
+	color: white;
+	padding: 10px;
+	font-size: 13px;
+	margin-top: 0;
+	margin-bottom: 10px;
+	border: none;
+	border-radius: 4px;
+}
 @media screen and (max-width: 500px) {
 	.login_form {
 		width: 80vw;

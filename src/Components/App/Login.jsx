@@ -9,6 +9,8 @@ import {useNavigate} from "react-router-dom";
 import {authentication} from "../../firebase-config"
 import {signInWithEmailAndPassword} from "firebase/auth"
 import {BsFillEyeFill,BsFillEyeSlashFill} from "react-icons/bs";
+import {ToastContainer,toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,23 +18,15 @@ function Login() {
   const [visible,setVisible] = useState(false);
   let history = useNavigate('/')
 
-
-  function handleLogin(){
-    signInWithEmailAndPassword(authentication, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      alert("Welcome Back ! " +user.email)
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage)
-    });
-  }
-
   async function handleSubmit(e) {
     e.preventDefault();
     
+    if(!email){
+      toast.warning("Please provide your email");
+    }
+    if(!password){
+      toast.warning("Please provide your password");
+    }
     const response = await fetch('http://localhost:5000/userLogin', {
         method: 'POST',
         headers: {
@@ -41,10 +35,11 @@ function Login() {
         body: JSON.stringify({ email: email, password: password })
       });
       const res = await response.json();
-      console.log(response)
+      console.log(res)
       if (res === false) {
-        console.log("Invalid Credentials!!");
+        toast.error("Invalid Credentials!!");
       } else {
+        toast.success()
         localStorage.setItem('token', res.token)
         history('/')
       }
@@ -81,7 +76,7 @@ function Login() {
           </div>
         </div>
 
-        <button onClick={handleLogin} type="submit">Login</button>
+        <button type="submit">Login</button>
         <div style={{display:"flex",justifyContent:"space-around"}}>
         <Link to="/forgot" className="registerlink" style={{fontSize:"13px",textDecoration:"none"}}>
           Forgot password?

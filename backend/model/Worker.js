@@ -50,12 +50,9 @@ const workerSchema = new mongoose.Schema({
         required: true,
         minlength: 7,
         trim: true,
-        validate(value) {
-            if (value.toLowerCase().includes('password')) {
-                throw new Error('Password cannot contain "password"')
-            }
-        }
     }
+},{
+    timestamps:true    //Note this is the second parameter passed to the schema
 })
 
 workerSchema.pre('save', async function (next) {

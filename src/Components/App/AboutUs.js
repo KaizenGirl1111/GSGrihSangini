@@ -25,9 +25,9 @@ function AboutUs() {
 					<p>GrihSangini is a project working towards creating a brand new LinkedIn but for blue-collar workers. A place where blue-collar workers can mingle, upskill themselves, learn financial literacy and most importantly-find jobs for themselves.</p>
 				</div>
 				<div className="social">
-					<i className="fab fa-facebook-f"></i>
-					<i className="fab fa-twitter"></i>
-					<i className="fab fa-instagram"></i>
+					<a href="https://github.com/KaizenGirl1111/GSGrihSangini"><i className="fab fa-github"></i></a>
+					<a href="https://www.linkedin.com/company/grihsangini/"><i className="fab fa-linkedin"></i></a>
+					<a href="https://www.instagram.com/grihsangini/"><i className="fab fa-instagram"></i></a>
 				</div>
 			</div>
 			<div className="image-section">

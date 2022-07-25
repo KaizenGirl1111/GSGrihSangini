@@ -1,9 +1,5 @@
-import {
-	createUserWithEmailAndPassword,
-	GoogleAuthProvider,
-	signInWithPopup,
-} from 'firebase/auth';
 import React, { Fragment, useState } from 'react';
+import FacebookLogin from 'react-facebook-login';
 import { AiFillHome } from 'react-icons/ai';
 import { BsFillPersonFill, BsFillTelephoneFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
@@ -13,6 +9,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authentication } from '../../firebase-config';
 import Footer from './Footer/Footer';
 import NavigationBar from './NavigationBar/NavigationBar';
+import {ToastContainer,toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import './signup.css';
 
 function Signup() {
@@ -24,46 +22,25 @@ function Signup() {
 	const [contactNo, setContactNo] = useState('');
 	const [address, setAddress] = useState('');
 
-	function handleGoogleAuth() {
-		const provider = new GoogleAuthProvider();
-		signInWithPopup(authentication, provider)
-			.then((result) => {
-				const credential =
-					GoogleAuthProvider.credentialFromResult(result);
-				const token = credential.accessToken;
-				const user = result.user;
-				console.log(user.displayName);
-				alert(
-					`${user.displayName}  has logged in ` +
-						'.You can now head back to the home page',
-				);
-				localStorage.setItem('token', token);
-			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				const email = error.email;
-				const credential =
-					GoogleAuthProvider.credentialFromError(error);
-				alert(errorMessage);
-			});
-	}
-
-	function handleSignup() {
-		createUserWithEmailAndPassword(authentication, email, password)
-			.then((userCredential) => {
-				const user = userCredential.user;
-				alert(user.email + ' has logged in!');
-			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				alert(errorMessage);
-				alert(errorCode);
-			});
-	}
-
 	async function handleSubmit(e) {
+		if(!name){
+			toast.warning("Please provide your name");
+		}
+		if(!email){
+			toast.warning("Please provide your email address");
+		}
+		if(!contactNo){
+			toast.warning("Please provide your contact number");
+		}
+		if(!address){
+			toast.warning("Please provide your address");
+		}
+		if(!password){
+			toast.warning("Please enter your password");
+		}
+		if(password !==cpassword){
+			toast.warning("Passwords didn't match");
+		}
 		e.preventDefault();
 		const response = await fetch('http://localhost:5000/userSignUp', {
 			method: 'POST',
@@ -75,14 +52,15 @@ function Signup() {
 				contactNo: contactNo,
 				address: address,
 				email: email,
-				password: password,
+				password: password
 			}),
 		});
 		const res = await response.json();
-		console.log(response);
+		console.log(res);
 		if (res === false) {
-			console.log('Invalid Credentials!!');
+			toast.error('Invalid Credentials!!');
 		} else {
+			toast.success("Resgistration Successful");
 			localStorage.setItem('token', res.token);
 			history('/');
 		}
@@ -93,7 +71,7 @@ function Signup() {
 			<NavigationBar />
 			<div class='one'></div>
 			<div className='login_form'>
-				<form onSubmit={handleSignup}>
+				<form onSubmit={handleSubmit}>
 					<h1 className='login_heading'>Signup</h1>
 
 					<div className='input_element'>
@@ -165,12 +143,6 @@ function Signup() {
 						Already registered?
 					</Link>
 				</form>
-				<div className='social'>
-					<p>OR</p>
-					<button className='google' onClick={handleGoogleAuth}>
-						<FcGoogle size={'2em'} /> Sign up with Google
-					</button>
-				</div>
 			</div>
 			<Footer />
 		</Fragment>
