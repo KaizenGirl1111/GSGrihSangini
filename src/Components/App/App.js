@@ -36,7 +36,7 @@ function App() {
           <Route path="/Workersignup" element={<Workersignup />} />
           <Route path="/Workerlogin" element={<Workerlogin />} />
           <Route path="/SosPage" element={<SosPage />} />
-          <Route path="/PhoneVerification" element ={<PhoneVerification/>}/>
+          <Route path="/phoneVerification" element ={<PhoneVerification/>}/>
           <Route
             path="/Workerlogin/clientrequest"
             element={<ClientRequest />}
