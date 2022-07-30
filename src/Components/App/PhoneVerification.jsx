@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Footer from "./Footer/Footer";
 import {BsFillTelephoneFill} from "react-icons/bs";
 import "./login.css";
-import "./PhoneVerification.css"
+import '../App/phoneVerification.css'
 import Axios from "axios"
 
 
