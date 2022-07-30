@@ -61,8 +61,7 @@ function Contact() {
 
         <div className="input_element">
         <RiMessage2Fill/>
-          <input
-            type="text"
+          <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Message"
