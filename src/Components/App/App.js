@@ -11,7 +11,7 @@ import ContactUS from "./Contactus";
 import Workersignup from "./Workersignup";
 import Workerlogin from "./Workerlogin";
 import SosPage from "./SosPage"
-
+import AddCategory from "./Workers/AddCategory";
 import ClientRequest from "./ClientRequest/ClientRequest.jsx";
 import { Scrollbars } from "react-custom-scrollbars";
 
@@ -43,7 +43,7 @@ function App() {
           />
 
           <Route path="/AboutUs" element={<AboutUs />} />
-
+          <Route path="/AddCategory" element={<AddCategory />} />
           <Route
             path="/reset-password/:token"
             element={<ResetPassword />}

@@ -32,7 +32,8 @@ router.post('/workerLogin',async (req,res)=>{
             throw new Error('unable to login')
         }
         const token=jwt.sign({_id:worker._id},'hello')
-        worker.token=worker.save()
+        worker.token=token;
+        await worker.save()
         res.send({worker,token}) 
     }catch(e){
         res.status(400).send('Something went wrong!!')

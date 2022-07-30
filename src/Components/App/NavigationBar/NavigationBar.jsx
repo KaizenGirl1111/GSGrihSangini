@@ -59,6 +59,11 @@ function NavigationBar() {
                 FIND-WORKER
               </Nav.Link>
             )}
+            {localStorage.getItem("token") && (
+              <Nav.Link className="NavLink" href="/AddCategory">
+                AddCategory
+              </Nav.Link>
+            )}
             {localStorage.getItem('token')?
             <button type="button" className="btn btn-light" onClick={()=>{handleClick()}}>Logout</button>:<></>}
           </Nav>
